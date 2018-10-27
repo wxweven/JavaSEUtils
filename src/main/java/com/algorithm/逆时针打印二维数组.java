@@ -6,7 +6,7 @@ package com.algorithm;
  * @author wxweven
  * @date 2018/10/26
  */
-public class 顺时针打印二维数组 {
+public class 逆时针打印二维数组 {
 
     private static void meiyiquan(int[][] nums) {
         if (nums == null)
@@ -42,45 +42,45 @@ public class 顺时针打印二维数组 {
         int endRow = arr.length - 1 - start;
 
         /**
-         * 向右打印：从当前列开始，向右打印，注意最大可用的列也要打印
+         * 向下打印：从当前列开始，向下打印，注意最大可用的行也要打印
          */
-        for (int i = start; i <= endCol; i++) {
-            System.out.print(arr[start][i] + " ");
+        for (int i = start; i <= endRow; i++) {
+            System.out.print(arr[i][start] + " ");
         }
 
         /**
-         * 向下打印：从当前行的下一行开始，向下打印，注意最大可用的行也要打印
-         * 需要注意的是，能够向下打印，说明当前还没有达到最大可用的行，即 start < endRow
+         * 向右打印：从当前列的下一列开始，向右打印，注意最大可用的列也要打印
+         * 需要注意的是，能够向下打印，说明当前还没有达到最大可用的列，即 start < endCol
          */
-        if (start < endRow) {
-            // 这时候，列已经达到了最大可用列，行递增即可，直到最大可用行（包括）
-            for (int i = start + 1; i <= endRow; i++) {
-                System.out.print(arr[i][endCol] + " ");
-            }
-        }
-
-        /**
-         * 向左打印：能够向左打印，说明已经能够向下打印，所以同样要保证：start < endRow
-         * 能够向左打印，还说明当前列没有达到最大可用列，即：start < endCol
-         * 从当前列的左一列开始，向左打印
-         */
-        if (start < endRow && start < endCol) {
-            // 这时候，行已经达到了最大可用行，列递减即可，直到开始列（包括）
-            for (int i = endCol - 1; i >= start; i--) {
+        if (start < endCol) {
+            // 这时候，行已经达到了最大可用行，列递增即可，直到最大可用列（包括）
+            for (int i = start + 1; i <= endCol; i++) {
                 System.out.print(arr[endRow][i] + " ");
             }
         }
 
         /**
-         * 向上打印：能够向上打印，说明已经能够向左打印，所以同样要保证：start < endRow && start < endCol
-         * 能够向上打印，还说明当前行和最大可用行之间至少有一个空行，即：start +1 < endRow
-         * 结合以上两个条件：start < endRow - 1 && start < endCol
+         * 向上打印：能够向上打印，说明已经能够向右打印，所以同样要保证：start < endCol
+         * 能够向上打印，还说明当前行没有达到最大可用行，即：start < endRow
+         * 从当前列的左一列开始，向左打印
+         */
+        if (start < endRow && start < endCol) {
+            // 这时候，列已经达到了最大可用列，行递减即可，直到开始行（包括）
+            for (int i = endRow - 1; i >= start; i--) {
+                System.out.print(arr[i][endCol] + " ");
+            }
+        }
+
+        /**
+         * 向左打印：能够向左打印，说明已经能够向上打印，所以同样要保证：start < endRow && start < endCol
+         * 能够向左打印，还说明当前列和最大可用列之间至少有一个空列，即：start +1 < endCol
+         * 结合以上两个条件：start < endRow && start < endCol - 1
          * 从最后一行的上一行开始，向上打印
          */
-        if (start < endCol && start < endRow - 1) {
-            // 这时候，列已经达到了开始列，行递减即可，直到开始行（不包括）
-            for (int i = endRow - 1; i > start; i--) {
-                System.out.print(arr[i][start] + " ");
+        if (start < endRow && start < endCol - 1) {
+            // 这时候，行已经达到了开始行，列递减即可，直到开始列（不包括）
+            for (int i = endCol - 1; i > start; i--) {
+                System.out.print(arr[start][i] + " ");
             }
         }
 
