@@ -61,14 +61,18 @@ public class 二叉树的宽度 {
         BiTree node5 = new BiTree(5);
         BiTree node6 = new BiTree(6);
         BiTree node7 = new BiTree(7);
+        BiTree node8 = new BiTree(8);
+        BiTree node9 = new BiTree(9);
+        BiTree node10 = new BiTree(10);
 
         setSubTree(node1, node2, node3);
         setSubTree(node2, node4, node5);
         setSubTree(node3, null, node6);
-        setSubTree(node5, node7, null);
+        setSubTree(node5, node7, node8);
+        setSubTree(node6, node9, node10);
 
         int biTreeWidth = getBiTreeWidth(node1);
         System.out.println(biTreeWidth);
-        Assert.assertTrue(biTreeWidth == 3);
+        Assert.assertTrue(biTreeWidth == 4);
     }
 }

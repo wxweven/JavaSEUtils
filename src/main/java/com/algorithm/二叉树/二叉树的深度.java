@@ -18,7 +18,6 @@ public class 二叉树的深度 {
      * @return
      */
     public static int getDeep(BiTree root) {
-
         if (root == null) {
             return 0;
         }
@@ -84,11 +83,14 @@ public class 二叉树的深度 {
         BiTree node5 = new BiTree(5);
         BiTree node6 = new BiTree(6);
         BiTree node7 = new BiTree(7);
+        BiTree node8 = new BiTree(8);
+        BiTree node9 = new BiTree(9);
 
         setSubTree(node1, node2, node3);
         setSubTree(node2, node4, node5);
         setSubTree(node3, null, node6);
-        setSubTree(node5, node7, null);
+        setSubTree(node5, node7, node8);
+        setSubTree(node6, node9, null);
 
         int biTreeDepth = getDeep(node1);
         int biTreeDepth2 = getDeep2(node1);
