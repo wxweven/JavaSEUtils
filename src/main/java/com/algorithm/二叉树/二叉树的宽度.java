@@ -20,16 +20,16 @@ public class 二叉树的宽度 {
      * @param root
      * @return
      */
-    public static int getBiTreeWidth(BiTree root) {
+    public static int getBiTreeWidth(BiTreeNode root) {
         if (root == null) {
             return 0;
         }
 
-        Queue<BiTree> queue = new LinkedList<>();
+        Queue<BiTreeNode> queue = new LinkedList<>();
         // 初始条件，需要把头节点入列
         queue.offer(root);
 
-        BiTree currentNode;
+        BiTreeNode currentNode;
 
         int maxWidth = 1;
         while (!queue.isEmpty()) {
@@ -54,16 +54,16 @@ public class 二叉树的宽度 {
 
     @Test
     public void testGetBiTreeNode() {
-        BiTree node1 = new BiTree(1);
-        BiTree node2 = new BiTree(2);
-        BiTree node3 = new BiTree(3);
-        BiTree node4 = new BiTree(4);
-        BiTree node5 = new BiTree(5);
-        BiTree node6 = new BiTree(6);
-        BiTree node7 = new BiTree(7);
-        BiTree node8 = new BiTree(8);
-        BiTree node9 = new BiTree(9);
-        BiTree node10 = new BiTree(10);
+        BiTreeNode node1 = new BiTreeNode(1);
+        BiTreeNode node2 = new BiTreeNode(2);
+        BiTreeNode node3 = new BiTreeNode(3);
+        BiTreeNode node4 = new BiTreeNode(4);
+        BiTreeNode node5 = new BiTreeNode(5);
+        BiTreeNode node6 = new BiTreeNode(6);
+        BiTreeNode node7 = new BiTreeNode(7);
+        BiTreeNode node8 = new BiTreeNode(8);
+        BiTreeNode node9 = new BiTreeNode(9);
+        BiTreeNode node10 = new BiTreeNode(10);
 
         setSubTree(node1, node2, node3);
         setSubTree(node2, node4, node5);

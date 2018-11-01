@@ -17,7 +17,7 @@ public class 二叉树的深度 {
      * @param root 根节点
      * @return
      */
-    public static int getDeep(BiTree root) {
+    public static int getDeep(BiTreeNode root) {
         if (root == null) {
             return 0;
         }
@@ -31,17 +31,18 @@ public class 二叉树的深度 {
 
     /**
      * 求树的深度，非递归实现
+     * 利用层次遍历
      *
      * @param root 根节点
      * @return
      */
-    public int getDeep2(BiTree root) {
+    public int getDeep2(BiTreeNode root) {
         if (root == null) {
             return 0;
         }
 
-        BiTree current;
-        Queue<BiTree> queue = new LinkedList<>();
+        BiTreeNode current;
+        Queue<BiTreeNode> queue = new LinkedList<>();
         queue.add(root);
 
         int depth = 0;
@@ -65,7 +66,7 @@ public class 二叉树的深度 {
     }
 
 
-    public static void setSubTree(BiTree root, BiTree lChild, BiTree rChild) {
+    public static void setSubTree(BiTreeNode root, BiTreeNode lChild, BiTreeNode rChild) {
         if (root == null) {
             return;
         }
@@ -76,15 +77,15 @@ public class 二叉树的深度 {
 
     @Test
     public void getDepthTest() {
-        BiTree node1 = new BiTree(1);
-        BiTree node2 = new BiTree(2);
-        BiTree node3 = new BiTree(3);
-        BiTree node4 = new BiTree(4);
-        BiTree node5 = new BiTree(5);
-        BiTree node6 = new BiTree(6);
-        BiTree node7 = new BiTree(7);
-        BiTree node8 = new BiTree(8);
-        BiTree node9 = new BiTree(9);
+        BiTreeNode node1 = new BiTreeNode(1);
+        BiTreeNode node2 = new BiTreeNode(2);
+        BiTreeNode node3 = new BiTreeNode(3);
+        BiTreeNode node4 = new BiTreeNode(4);
+        BiTreeNode node5 = new BiTreeNode(5);
+        BiTreeNode node6 = new BiTreeNode(6);
+        BiTreeNode node7 = new BiTreeNode(7);
+        BiTreeNode node8 = new BiTreeNode(8);
+        BiTreeNode node9 = new BiTreeNode(9);
 
         setSubTree(node1, node2, node3);
         setSubTree(node2, node4, node5);

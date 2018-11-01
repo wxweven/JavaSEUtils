@@ -19,7 +19,7 @@ public class HeapSort {
      * @param data
      */
     private static void buildHeap(int[] data) {
-        // 没有子节点的才需要创建最大堆，从最后一个的父节点开始
+        // 没有子节点的才需要创建最大堆，从最后一个节点的父节点开始
         int startIndex = getParentIndex(data.length - 1);
 
         // 从尾端开始创建最大堆，每次都是正确的堆

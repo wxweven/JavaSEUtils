@@ -47,7 +47,7 @@ public class TestBlockingNIO {
     public void client() throws IOException {
         // 1. 获取文件通道
         String path = TestBlockingNIO.class.getClassLoader().getResource(INPUT_PIC_NAME).getPath();
-        LOGGER.debug("input file path:{}", path);
+        LOGGER.debug("input file findPath:{}", path);
         FileChannel fileChannel = FileChannel.open(Paths.get(path), StandardOpenOption.READ);
 
         // 2. 获取socket通道
@@ -76,7 +76,7 @@ public class TestBlockingNIO {
         // 1. 获取文件通道
         String path = TestBlockingNIO.class.getClassLoader().getResource(".").getPath();
 
-        LOGGER.debug("output file path:{}", path);
+        LOGGER.debug("output file findPath:{}", path);
         FileChannel fileChannel = FileChannel.open(Paths.get(path, OUTPUT_PIC_NAME), StandardOpenOption.WRITE, StandardOpenOption.CREATE);
 
         // 2. 获取服务端socket通道

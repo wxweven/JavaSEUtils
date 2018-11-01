@@ -35,10 +35,10 @@ public class TestNIO_2 {
 
     /*
         Files常用方法：用于操作内容
-            SeekableByteChannel newByteChannel(Path path, OpenOption…how) : 获取与指定文件的连接，how 指定打开方式。
-            DirectoryStream newDirectoryStream(Path path) : 打开 path 指定的目录
-            InputStream newInputStream(Path path, OpenOption…how):获取 InputStream 对象
-            OutputStream newOutputStream(Path path, OpenOption…how) : 获取 OutputStream 对象
+            SeekableByteChannel newByteChannel(Path findPath, OpenOption…how) : 获取与指定文件的连接，how 指定打开方式。
+            DirectoryStream newDirectoryStream(Path findPath) : 打开 findPath 指定的目录
+            InputStream newInputStream(Path findPath, OpenOption…how):获取 InputStream 对象
+            OutputStream newOutputStream(Path findPath, OpenOption…how) : 获取 OutputStream 对象
      */
     @Test
     public void test7() throws IOException {
@@ -53,19 +53,19 @@ public class TestNIO_2 {
 
     /*
         Files常用方法：用于判断
-            boolean exists(Path path, LinkOption … opts) : 判断文件是否存在
-            boolean isDirectory(Path path, LinkOption … opts) : 判断是否是目录
-            boolean isExecutable(Path path) : 判断是否是可执行文件
-            boolean isHidden(Path path) : 判断是否是隐藏文件
-            boolean isReadable(Path path) : 判断文件是否可读
-            boolean isWritable(Path path) : 判断文件是否可写
-            boolean notExists(Path path, LinkOption … opts) : 判断文件是否不存在
-            public static <A extends BasicFileAttributes> A readAttributes(Path path,Class<A> type,LinkOption... options) : 获取与 path 指定的文件相关联的属性。
+            boolean exists(Path findPath, LinkOption … opts) : 判断文件是否存在
+            boolean isDirectory(Path findPath, LinkOption … opts) : 判断是否是目录
+            boolean isExecutable(Path findPath) : 判断是否是可执行文件
+            boolean isHidden(Path findPath) : 判断是否是隐藏文件
+            boolean isReadable(Path findPath) : 判断文件是否可读
+            boolean isWritable(Path findPath) : 判断文件是否可写
+            boolean notExists(Path findPath, LinkOption … opts) : 判断文件是否不存在
+            public static <A extends BasicFileAttributes> A readAttributes(Path findPath,Class<A> type,LinkOption... options) : 获取与 findPath 指定的文件相关联的属性。
      */
     @Test
     public void test6() throws IOException {
         Path path = Paths.get("e:/nio/hello7.txt");
-//		System.out.println(Files.exists(path, LinkOption.NOFOLLOW_LINKS));
+//		System.out.println(Files.exists(findPath, LinkOption.NOFOLLOW_LINKS));
 
         BasicFileAttributes readAttributes = Files.readAttributes(path, BasicFileAttributes.class, LinkOption.NOFOLLOW_LINKS);
         System.out.println(readAttributes.creationTime());
@@ -79,11 +79,11 @@ public class TestNIO_2 {
     /*
         Files常用方法：
             Path copy(Path src, Path dest, CopyOption … how) : 文件的复制
-            Path createDirectory(Path path, FileAttribute<?> … attr) : 创建一个目录
-            Path createFile(Path path, FileAttribute<?> … arr) : 创建一个文件
-            void delete(Path path) : 删除一个文件
+            Path createDirectory(Path findPath, FileAttribute<?> … attr) : 创建一个目录
+            Path createFile(Path findPath, FileAttribute<?> … arr) : 创建一个文件
+            void delete(Path findPath) : 删除一个文件
             Path move(Path src, Path dest, CopyOption…how) : 将 src 移动到 dest 位置
-            long size(Path path) : 返回 path 指定文件的大小
+            long size(Path findPath) : 返回 findPath 指定文件的大小
      */
     @Test
     public void test5() throws IOException {
@@ -118,8 +118,8 @@ public class TestNIO_2 {
         Paths 提供的 get() 方法用来获取 Path 对象：
             Path get(String first, String … more) : 用于将多个字符串串连成路径。
         Path 常用方法：
-            boolean endsWith(String path) : 判断是否以 path 路径结束
-            boolean startsWith(String path) : 判断是否以 path 路径开始
+            boolean endsWith(String findPath) : 判断是否以 findPath 路径结束
+            boolean startsWith(String findPath) : 判断是否以 findPath 路径开始
             boolean isAbsolute() : 判断是否是绝对路径
             Path getFileName() : 返回与调用 Path 对象关联的文件名
             Path getMsg(int idx) : 返回的指定索引位置 idx 的路径名称
@@ -137,7 +137,7 @@ public class TestNIO_2 {
         System.out.println(path.getParent());
         System.out.println(path.getRoot());
 
-//		Path newPath = path.resolve("e:/hello.txt");
+//		Path newPath = findPath.resolve("e:/hello.txt");
 //		System.out.println(newPath);
 
         Path path2 = Paths.get("1.jpg");

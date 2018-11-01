@@ -2,10 +2,10 @@ package com.algorithm.二叉树;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
-
-import static com.algorithm.二叉树.二叉树的深度.setSubTree;
 
 /**
  * @author wxweven
@@ -13,16 +13,16 @@ import static com.algorithm.二叉树.二叉树的深度.setSubTree;
  */
 public class 二叉树层次遍历 {
 
-    public static void travelByLevel(BiTree root) {
+    public static void travelByLevel(BiTreeNode root) {
         if (root == null) {
             return;
         }
 
-        Queue<BiTree> queue = new LinkedList<>();
+        Queue<BiTreeNode> queue = new LinkedList<>();
         // 初始条件，需要把头节点入列
         queue.offer(root);
 
-        BiTree currentNode;
+        BiTreeNode currentNode;
 
         while (!queue.isEmpty()) {
             /**
@@ -52,21 +52,65 @@ public class 二叉树层次遍历 {
         }
     }
 
+    /**
+     * 按层次ZigZig打印二叉树
+     *
+     * @param root
+     */
+    public static void travelByLevelS(BiTreeNode root) {
+        if (root == null) {
+            return;
+        }
+
+        Queue<BiTreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+
+        boolean flag = true;
+
+        while (!queue.isEmpty()) {
+            int curLevelSize = queue.size();
+            List<Integer> list = new ArrayList<>();
+
+            for (int i = 0; i < curLevelSize; i++) {
+                BiTreeNode curNode = queue.poll();
+                list.add(curNode.getData());
+
+                if (curNode.getLeftChild() != null) {
+                    queue.add(curNode.getLeftChild());
+                }
+
+                if (curNode.getRightChild() != null) {
+                    queue.add(curNode.getRightChild());
+                }
+            }
+
+            if (flag) {
+                printList(list);
+                flag = false;
+            } else {
+                printReverseList(list);
+                flag = true;
+            }
+        }
+    }
+
+    private static void printReverseList(List<Integer> list) {
+        for (int i = list.size() - 1; i >= 0; i--) {
+            System.out.print(list.get(i) + " ");
+        }
+    }
+
+    private static void printList(List<Integer> list) {
+        for (int i = 0; i < list.size(); i++) {
+            System.out.print(list.get(i) + " ");
+        }
+    }
+
     @Test
     public void testTravelByLevel() {
-        BiTree node1 = new BiTree(1);
-        BiTree node2 = new BiTree(2);
-        BiTree node3 = new BiTree(3);
-        BiTree node4 = new BiTree(4);
-        BiTree node5 = new BiTree(5);
-        BiTree node6 = new BiTree(6);
-        BiTree node7 = new BiTree(7);
+        BiTreeNode root = BiTreeNode.initTree();
 
-        setSubTree(node1, node2, node3);
-        setSubTree(node2, node4, node5);
-        setSubTree(node3, null, node6);
-        setSubTree(node5, node7, null);
-
-        travelByLevel(node1);
+        travelByLevel(root);
+//        travelByLevelS(root);
     }
 }
