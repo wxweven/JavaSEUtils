@@ -35,11 +35,11 @@ public class 二叉树深度优先遍历 {
         while (!stack.isEmpty()) {
             BiTreeNode node = stack.pop();
             System.out.print(node.getData() + " ");
-            if (node.getRightChild() != null) {
-                stack.push(node.getRightChild());
+            if (node.right != null) {
+                stack.push(node.right);
             }
-            if (node.getLeftChild() != null) {
-                stack.push(node.getLeftChild());
+            if (node.left != null) {
+                stack.push(node.left);
             }
         }
 
@@ -49,8 +49,8 @@ public class 二叉树深度优先遍历 {
     public void preOrderTraverse1(BiTreeNode root) {
         if (root != null) {
             System.out.print(root.getData() + " ");
-            preOrderTraverse1(root.getLeftChild());
-            preOrderTraverse1(root.getRightChild());
+            preOrderTraverse1(root.left);
+            preOrderTraverse1(root.right);
         }
     }
 

@@ -6,6 +6,8 @@ import org.junit.Test;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import static com.algorithm.二叉树.BiTreeNode.setSubTree;
+
 /**
  * @author wxweven
  * @date 2018/10/27
@@ -22,11 +24,11 @@ public class 二叉树的深度 {
             return 0;
         }
 
-        int lchilddeep = getDeep(root.getLeftChild());//求左子树的深度
-        int rchilddeep = getDeep(root.getRightChild());//求右子树的深度
+        int lchilddeep = getDeep(root.left);//求左子树的深度
+        int rchilddeep = getDeep(root.right);//求右子树的深度
 
         // 左子树和右子树深度较大的那个加一等于整个树的深度
-        return lchilddeep > rchilddeep ? lchilddeep + 1 : rchilddeep + 1;
+        return Math.max(lchilddeep, rchilddeep) + 1;
     }
 
     /**
@@ -50,11 +52,11 @@ public class 二叉树的深度 {
             int curLevelSize = queue.size();
             for (int i = 0; i < curLevelSize; i++) {
                 current = queue.poll();
-                if (current.getLeftChild() != null) {
-                    queue.add(current.getLeftChild());
+                if (current.left != null) {
+                    queue.add(current.left);
                 }
-                if (current.getRightChild() != null) {
-                    queue.add(current.getRightChild());
+                if (current.right != null) {
+                    queue.add(current.right);
                 }
             }
 
@@ -63,16 +65,6 @@ public class 二叉树的深度 {
         }
 
         return depth;
-    }
-
-
-    public static void setSubTree(BiTreeNode root, BiTreeNode lChild, BiTreeNode rChild) {
-        if (root == null) {
-            return;
-        }
-
-        root.setLeftChild(lChild);
-        root.setRightChild(rChild);
     }
 
     @Test

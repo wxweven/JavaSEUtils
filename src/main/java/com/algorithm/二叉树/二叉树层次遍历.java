@@ -41,12 +41,12 @@ public class 二叉树层次遍历 {
                 System.out.print(currentNode.getData() + " ");
 
                 // 关键点：将当前节点出列后，需要先后把左孩子、右孩子入列，可以自己画一下，刚好就是层次遍历
-                if (currentNode.getLeftChild() != null) {
-                    queue.offer(currentNode.getLeftChild());
+                if (currentNode.left != null) {
+                    queue.offer(currentNode.left);
                 }
 
-                if (currentNode.getRightChild() != null) {
-                    queue.offer(currentNode.getRightChild());
+                if (currentNode.right != null) {
+                    queue.offer(currentNode.right);
                 }
             }
         }
@@ -75,12 +75,12 @@ public class 二叉树层次遍历 {
                 BiTreeNode curNode = queue.poll();
                 list.add(curNode.getData());
 
-                if (curNode.getLeftChild() != null) {
-                    queue.add(curNode.getLeftChild());
+                if (curNode.left != null) {
+                    queue.add(curNode.left);
                 }
 
-                if (curNode.getRightChild() != null) {
-                    queue.add(curNode.getRightChild());
+                if (curNode.right != null) {
+                    queue.add(curNode.right);
                 }
             }
 

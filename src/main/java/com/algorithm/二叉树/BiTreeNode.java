@@ -1,20 +1,18 @@
 package com.algorithm.二叉树;
 
-import static com.algorithm.二叉树.二叉树的深度.setSubTree;
-
 public class BiTreeNode {
     public int data;
-    public BiTreeNode leftChild;
-    public BiTreeNode rightChild;
+    public BiTreeNode left;
+    public BiTreeNode right;
 
     public BiTreeNode(int data) {
         this.data = data;
     }
 
-    public BiTreeNode(int data, BiTreeNode leftChild, BiTreeNode rightChild) {
+    public BiTreeNode(int data, BiTreeNode left, BiTreeNode right) {
         this.data = data;
-        this.leftChild = leftChild;
-        this.rightChild = rightChild;
+        this.left = left;
+        this.right = right;
     }
 
     public static BiTreeNode initTree() {
@@ -44,23 +42,34 @@ public class BiTreeNode {
         BiTreeNode node7 = new BiTreeNode(17);
         BiTreeNode node8 = new BiTreeNode(1);
         BiTreeNode node9 = new BiTreeNode(9);
+        BiTreeNode node10 = new BiTreeNode(9);
 
         setSubTree(node1, node2, node3);
         setSubTree(node2, node4, node5);
         setSubTree(node3, node6, node7);
         setSubTree(node4, node8, null);
         setSubTree(node5, null, node9);
+        setSubTree(node9, null, node10);
 
         return node1;
     }
 
+    public static void setSubTree(BiTreeNode root, BiTreeNode lChild, BiTreeNode rChild) {
+        if (root == null) {
+            return;
+        }
+
+        root.left = lChild;
+        root.right = rChild;
+    }
+
     public static BiTreeNode findMinNode(BiTreeNode root) {
-        if(root == null){
+        if (root == null) {
             return null;
         }
 
-        if(root.leftChild != null){
-            return findMinNode(root.leftChild);
+        if (root.left != null) {
+            return findMinNode(root.left);
         }
 
         return root;
@@ -72,24 +81,6 @@ public class BiTreeNode {
 
     public BiTreeNode setData(int data) {
         this.data = data;
-        return this;
-    }
-
-    public BiTreeNode getLeftChild() {
-        return leftChild;
-    }
-
-    public BiTreeNode setLeftChild(BiTreeNode leftChild) {
-        this.leftChild = leftChild;
-        return this;
-    }
-
-    public BiTreeNode getRightChild() {
-        return rightChild;
-    }
-
-    public BiTreeNode setRightChild(BiTreeNode rightChild) {
-        this.rightChild = rightChild;
         return this;
     }
 }

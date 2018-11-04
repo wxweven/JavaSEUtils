@@ -24,10 +24,10 @@ public class BST删除指定元素 {
         if (data < root.getData()) {
             // 递归删除左子树
             // 需要将当前节点的左孩子指向（删除后段左子树的根）
-            root.leftChild = deleteData(root.leftChild, data);
+            root.left = deleteData(root.left, data);
         } else if (data > root.getData()) {
             // 同理，递归删除右子树
-            root.rightChild = deleteData(root.rightChild, data);
+            root.right = deleteData(root.right, data);
         } else {
             /**
              *  要删除当前节点，有三中情况
@@ -35,10 +35,10 @@ public class BST删除指定元素 {
 
             /**
              * case1: 当前节点是叶节点，没有左右孩子，直接删除就可以了。
-             * 也就是让外层的 leftChild 或 rightChild 指向null
+             * 也就是让外层的 left 或 right 指向null
              */
-            if (root.leftChild == null && root.rightChild == null) {
-                // 让外层调用的 leftChild 或 rightChild 指向null，即删除当前节点
+            if (root.left == null && root.right == null) {
+                // 让外层调用的 left 或 right 指向null，即删除当前节点
                 // 所以这里是返回null
                 return null;
             }
@@ -50,11 +50,11 @@ public class BST删除指定元素 {
              *      没有左孩子，那么让父节点指向右孩子
              *      没有右孩子，那么让父节点指向左孩子
              */
-            else if (root.leftChild == null) {
+            else if (root.left == null) {
                 // case2: 当前节点只有一个孩子
-                return root.rightChild;
-            } else if (root.rightChild == null) {
-                return root.leftChild;
+                return root.right;
+            } else if (root.right == null) {
+                return root.left;
             }
 
             /**
@@ -66,12 +66,12 @@ public class BST删除指定元素 {
              */
             else {
                 // 当前节点有两个孩子，右子树找最小的
-                BiTreeNode minNode = BiTreeNode.findMinNode(root.rightChild);
+                BiTreeNode minNode = BiTreeNode.findMinNode(root.right);
                 // 和当前节点交换
                 root.data = minNode.data;
 
                 // 从右子树里面删除最小的，并且让当前节点的右孩子指向删除后的根
-                root.rightChild = deleteData(root.rightChild, root.data);
+                root.right = deleteData(root.right, root.data);
                 return root;
             }
         }
