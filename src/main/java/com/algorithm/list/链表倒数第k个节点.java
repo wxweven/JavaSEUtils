@@ -1,5 +1,8 @@
 package com.algorithm.list;
 
+import org.junit.Test;
+
+import java.util.Arrays;
 import java.util.Scanner;
 
 /*
@@ -11,42 +14,9 @@ import java.util.Scanner;
  * 相关题2：判断单链表是否形成环形结构。还是一个指针走一步，一个指针走两步，走得快的指针如果追上走得慢的指针，那么就是环形的。如果走得快的走到了末尾都没有追上，说明不是环形。
  */
 public class 链表倒数第k个节点 {
-    //头插法建立链表,这里假设头结点就是第一个结点。
-    private ListNode insertFirst() {
-        Scanner sc = new Scanner(System.in);
-        ListNode headNode = null;
-        System.out.println("输入链表值，以0结束：");
-        int input = sc.nextInt();
-        while (input != 0) {
-            ListNode p = new ListNode(input);
-            p.next = headNode;
-            headNode = p;
-            input = sc.nextInt();
-        }
-        return headNode;
-    }
 
-    //正序打印链表
-    private void print(ListNode headNode) {
-        if (headNode == null) {
-            System.out.println("打印方法的输入为空");
-            return;
-        }
-        int i = 0;
-        while (headNode != null) {
-            if (i != 0) {
-                System.out.print("->");
-            }
-            System.out.print(headNode.value);
-            headNode = headNode.next;
-            i++;
-        }
-
-        System.out.println();
-    }
-
-    //找到倒数第k个
-    private ListNode find(ListNode headNode, int k) {
+    // 找到倒数第k个
+    public static ListNode find(ListNode headNode, int k) {
         if (headNode == null || k <= 0) {
             System.out.println("输入为空或k有误");
             return null;
@@ -79,21 +49,18 @@ public class 链表倒数第k个节点 {
         return slowNode;
     }
 
-    public static void main(String[] args) {
-        链表倒数第k个节点 test = new 链表倒数第k个节点();
-        ListNode ln = test.insertFirst();
-        test.print(ln);
-        System.out.println("请输入k：");
-        Scanner sc = new Scanner(System.in);
-        int k = sc.nextInt();
-        sc.close();
-        ListNode foundNode = test.find(ln, k);
+    @Test
+    public  void test() {
+        ListNode head = ListNode.createLinkedList(Arrays.asList(5,67,89,90));
+        ListNode.print(head);
+
+        int k = 2;
+        ListNode foundNode = find(head, k);
         if (foundNode == null) {
             System.out.println("未找到倒数第" + k + "个节点");
             return;
         }
 
         System.out.println("倒数第" + k + "个是:" + foundNode.value);
-
     }
 }
