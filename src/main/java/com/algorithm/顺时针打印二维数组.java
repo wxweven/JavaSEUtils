@@ -83,7 +83,6 @@ public class 顺时针打印二维数组 {
                 System.out.print(arr[i][start] + " ");
             }
         }
-
     }
 
     public static void main(String[] args) {
@@ -93,5 +92,25 @@ public class 顺时针打印二维数组 {
                 {7, 8, 9, 13, 56},
         };
         meiyiquan(tes);
+        System.out.println();
+
+        int[][] tes2 = {
+                {1, 2, 3, 11, 34}
+        };
+        meiyiquan(tes2);
+        System.out.println();
+
+        int[][] tes3 = {
+                {1},
+                {2}
+        };
+        meiyiquan(tes3);
+        System.out.println();
+
+        int[][] tes4 = {
+                {1}
+        };
+        meiyiquan(tes4);
+        System.out.println();
     }
 }
