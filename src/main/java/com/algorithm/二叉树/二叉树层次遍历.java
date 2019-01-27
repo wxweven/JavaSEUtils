@@ -38,7 +38,7 @@ public class 二叉树层次遍历 {
             for (int i = 0; i < curLevelSize; i++) {
                 // 将队列里面的节点出列
                 currentNode = queue.poll();
-                System.out.print(currentNode.getData() + " ");
+                System.out.print(currentNode.data + " ");
 
                 // 关键点：将当前节点出列后，需要先后把左孩子、右孩子入列，可以自己画一下，刚好就是层次遍历
                 if (currentNode.left != null) {
@@ -73,7 +73,7 @@ public class 二叉树层次遍历 {
 
             for (int i = 0; i < curLevelSize; i++) {
                 BiTreeNode curNode = queue.poll();
-                list.add(curNode.getData());
+                list.add(curNode.data);
 
                 if (curNode.left != null) {
                     queue.add(curNode.left);
@@ -111,6 +111,7 @@ public class 二叉树层次遍历 {
         BiTreeNode root = BiTreeNode.initTree();
 
         travelByLevel(root);
-//        travelByLevelS(root);
+        System.out.println();
+        travelByLevelS(root);
     }
 }

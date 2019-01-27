@@ -74,6 +74,6 @@ public class 二叉树的宽度 {
 
         int biTreeWidth = getBiTreeWidth(node1);
         System.out.println(biTreeWidth);
-        Assert.assertTrue(biTreeWidth == 4);
+        Assert.assertEquals(4, biTreeWidth);
     }
 }
