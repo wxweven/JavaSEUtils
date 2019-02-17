@@ -14,8 +14,9 @@ public class 求指定和的所有路径 {
             return;
         }
         Stack<Integer> path = new Stack<>();
-        int currentSum = 0;
-        findPath(root, expectedSum, path, currentSum);
+//        int currentSum = 0;
+//        findPath(root, expectedSum, path, currentSum);
+        findPath2(root, expectedSum, path);
     }
 
     public static void findPath(BiTreeNode root, int expectedSum, Stack<Integer> path, int currentSum) {
@@ -40,8 +41,37 @@ public class 求指定和的所有路径 {
 
         //第四步，结点是叶结点，但是值不相等，函数退出到其父结点，在路径中删去这个结点
         path.pop();
-        currentSum -= root.data;
     }
+
+    public static void findPath2(BiTreeNode root, int expectedSum, Stack<Integer> path) {
+        //第一步，把结点加入路径，累加和
+        path.push(root.data);
+
+        //第二步，如果结点是叶结点并满足值相等的条件，打印路径
+        boolean isLeaf = (root.left == null && root.right == null);
+
+        if (isLeaf && getCurrentSum(path) == expectedSum) {
+            System.out.println("A path is found:" + path);
+        }
+
+        //第三步，如果结点不是叶结点，递归访问子结点
+        if (root.left != null) {
+            findPath2(root.left, expectedSum, path);
+        }
+        if (root.right != null) {
+            findPath2(root.right, expectedSum, path);
+        }
+
+        //第四步，结点是叶结点，但是值不相等，函数退出到其父结点，在路径中删去这个结点
+        path.pop();
+    }
+
+    private static int getCurrentSum(Stack<Integer> stack) {
+        return stack.stream()
+                    .mapToInt(Integer::intValue)
+                    .sum();
+    }
+
 
     public static void main(String[] args) {
         BiTreeNode a = new BiTreeNode(10);
