@@ -10,7 +10,7 @@ public class LongEvent {
     @Override
     public String toString() {
         return "LongEvent{" +
-                "value=" + value +
+                "val=" + value +
                 '}';
     }
 }

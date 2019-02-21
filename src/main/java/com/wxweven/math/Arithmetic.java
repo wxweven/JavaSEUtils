@@ -183,7 +183,7 @@ public class Arithmetic {
         BigDecimal b2 = new BigDecimal(v2.toString());
 
         if (zero.compareTo(b2) == 0) {
-            logger.error("Data error! The value of divisor(v2) is zero!");
+            logger.error("Data error! The val of divisor(v2) is zero!");
             return 0.0000;
         }
 

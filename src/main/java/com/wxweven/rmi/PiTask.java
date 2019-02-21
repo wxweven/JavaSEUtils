@@ -38,8 +38,8 @@ public class PiTask implements Task<BigDecimal>, Serializable {
 	}
 
 	/**
-	 * Compute the value of pi to the specified number of digits after the
-	 * decimal point. The value is computed using Machin's formula:
+	 * Compute the val of pi to the specified number of digits after the
+	 * decimal point. The val is computed using Machin's formula:
 	 * 
 	 * pi/4 = 4*arctan(1/5) - arctan(1/239)
 	 * 
@@ -54,9 +54,9 @@ public class PiTask implements Task<BigDecimal>, Serializable {
 	}
 
 	/**
-	 * Compute the value, in radians, of the arctangent of the inverse of the
+	 * Compute the val, in radians, of the arctangent of the inverse of the
 	 * supplied integer to the specified number of digits after the decimal
-	 * point. The value is computed using the power series expansion for the arc
+	 * point. The val is computed using the power series expansion for the arc
 	 * tangent:
 	 * 
 	 * arctan(x) = x - (x^3)/3 + (x^5)/5 - (x^7)/7 + (x^9)/9 ...

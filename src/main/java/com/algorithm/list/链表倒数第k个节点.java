@@ -3,7 +3,6 @@ package com.algorithm.list;
 import org.junit.Test;
 
 import java.util.Arrays;
-import java.util.Scanner;
 
 /*
  * 面试题15：链表中倒数第K个结点
@@ -61,6 +60,6 @@ public class 链表倒数第k个节点 {
             return;
         }
 
-        System.out.println("倒数第" + k + "个是:" + foundNode.value);
+        System.out.println("倒数第" + k + "个是:" + foundNode.val);
     }
 }

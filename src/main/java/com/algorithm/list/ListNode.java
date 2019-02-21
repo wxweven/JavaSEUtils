@@ -6,11 +6,11 @@ import java.util.List;
 
 public class ListNode {
 
-    public int value;
+    public int val;
     public ListNode next;
 
     ListNode(int x) {
-        value = x;
+        val = x;
         next = null;
     }
 
@@ -52,7 +52,7 @@ public class ListNode {
             if (i != 0) {
                 System.out.print("->");
             }
-            System.out.print(head.value);
+            System.out.print(head.val);
             head = head.next;
             i++;
         }

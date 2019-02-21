@@ -36,10 +36,10 @@ public class 反转单链表 {
         System.out.println("反转后链表：");
         ListNode.print(newHead);
 
-        Assert.assertEquals(5, newHead.value);
+        Assert.assertEquals(5, newHead.val);
 
         head = ListNode.createLinkedList(Arrays.asList(5, 89, 60));
         newHead = reverse(head);
-        Assert.assertEquals(60, newHead.value);
+        Assert.assertEquals(60, newHead.val);
     }
 }

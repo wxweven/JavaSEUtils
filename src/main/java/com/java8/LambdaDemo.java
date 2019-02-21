@@ -17,11 +17,11 @@ public class LambdaDemo {
         };
 
         res = converter.convert("456");
-        System.out.println("value:" + res);
+        System.out.println("val:" + res);
 
         Converter<String, Integer> converter2 = Integer::valueOf;
         res = converter2.convert("12");
-        System.out.println("value:" + res);
+        System.out.println("val:" + res);
 
         List<String> l = Stream.of("a","b","c","b")
                                .distinct()
