@@ -3,7 +3,6 @@ package com.algorithm.list;
 import org.junit.Test;
 
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * @author wxweven
@@ -11,7 +10,7 @@ import java.util.List;
  */
 public class 删除排序单链表所有重复节点 {
     @Test
-    public void test(){
+    public void test() {
         ListNode head = ListNode.createLinkedList(Arrays.asList(1, 2, 3, 3, 4, 4, 5));
 
         ListNode head1 = deleteAllDuplicates(head);
@@ -47,22 +46,22 @@ public class 删除排序单链表所有重复节点 {
         dummy.next = head;
 
         ListNode prev = dummy;
-        ListNode slow = head;
-        ListNode fast = head.next;
+        ListNode cur = head;
+        ListNode next = head.next;
 
-        while (slow != null && fast != null) {
-            if (slow.val != fast.val) {
-                prev = slow;
-                slow = fast;
-                fast = fast.next;
+        while (next != null) {
+            if (cur.val != next.val) {
+                prev = cur;
+                cur = next;
+                next = next.next;
             } else {
-                while (fast != null && fast.val == slow.val) {
-                    fast = fast.next;
+                while (next != null && next.val == cur.val) {
+                    next = next.next;
                 }
 
-                prev.next = fast;
-                slow = fast;
-                fast = fast == null ? null : fast.next;
+                prev.next = next;
+                cur = next;
+                next = next == null ? null : next.next;
             }
         }
 
@@ -82,21 +81,21 @@ public class 删除排序单链表所有重复节点 {
      *   Output: 1->2->3
      */
     public static ListNode deleteDuplicates(ListNode head) {
-        if(head == null || head.next == null) {
+        if (head == null || head.next == null) {
             return head;
         }
 
-        ListNode slow = head;
-        ListNode fast = head.next;
+        ListNode cur = head;
+        ListNode next = head.next;
 
-        while(fast!=null){
-            if(fast.val == slow.val){
-                slow.next = fast.next;
+        while (next != null) {
+            if (next.val == cur.val) {
+                cur.next = next.next;
             } else {
-                slow = fast;
+                cur = next;
             }
 
-            fast = fast.next;
+            next = next.next;
         }
 
         return head;

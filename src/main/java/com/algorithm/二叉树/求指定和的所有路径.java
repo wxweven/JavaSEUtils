@@ -23,7 +23,6 @@ public class 求指定和的所有路径 {
 
         //第二步，如果结点是叶结点并满足值相等的条件，打印路径
         boolean isLeaf = (root.left == null && root.right == null);
-
         if (isLeaf && getCurrentSum(path) == expectedSum) {
             System.out.println("A path is found:" + path);
         }
