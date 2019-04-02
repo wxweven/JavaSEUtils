@@ -3,7 +3,6 @@ package com.algorithm.list;
 import org.junit.Test;
 
 import java.util.Arrays;
-import java.util.Scanner;
 
 /*
  * 面试题15：链表中倒数第K个结点
@@ -21,8 +20,8 @@ public class 链表倒数第k个节点 {
             System.out.println("输入为空或k有误");
             return null;
         }
-        ListNode fastNode = headNode;
-        ListNode slowNode = headNode;
+        ListNode fast = headNode;
+        ListNode slow = headNode;
 
         /*
          * 快指针先走k-1步
@@ -33,20 +32,21 @@ public class 链表倒数第k个节点 {
          *    n - (n-k+1) = k-1
          */
         for (int i = 0; i < k - 1; i++) {
-            if (fastNode.next != null) {
+            if (fast.next != null) {
                 // 防止 k 过大(大于n)，走完了列表，就会产生NPE
-                fastNode = fastNode.next;
+                fast = fast.next;
             } else {
                 System.out.println("输入k有误");
                 return null;
             }
         }
-        while (fastNode.next != null) {
-            fastNode = fastNode.next;
-            slowNode = slowNode.next;
+
+        while (fast.next != null) {
+            fast = fast.next;
+            slow = slow.next;
         }
 
-        return slowNode;
+        return slow;
     }
 
     @Test
@@ -61,6 +61,6 @@ public class 链表倒数第k个节点 {
             return;
         }
 
-        System.out.println("倒数第" + k + "个是:" + foundNode.value);
+        System.out.println("倒数第" + k + "个是:" + foundNode.val);
     }
 }

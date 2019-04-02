@@ -22,7 +22,7 @@ public class 合并两个有序的单链表 {
         }
 
         ListNode newHead = null;
-        if (head1.value < head2.value) {
+        if (head1.val < head2.val) {
             newHead = head1;
             newHead.next = merge(head1.next, head2);
         } else {
@@ -42,8 +42,8 @@ public class 合并两个有序的单链表 {
         System.out.println("合并后链表：");
         ListNode.print(newHead);
 
-        Assert.assertEquals(newHead.value, 1);
-        Assert.assertEquals(newHead.next.value, 2);
+        Assert.assertEquals(newHead.val, 1);
+        Assert.assertEquals(newHead.next.val, 2);
     }
 }
 

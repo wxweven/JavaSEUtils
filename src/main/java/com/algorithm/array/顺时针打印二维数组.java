@@ -1,4 +1,4 @@
-package com.algorithm;
+package com.algorithm.array;
 
 /**
  * 顺时针打印二维数组

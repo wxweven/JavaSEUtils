@@ -17,7 +17,7 @@ public class 删除链表指定元素 {
         // 要删除的节点不是尾节点
         if (toBeDeleted.next != null) {
             ListNode nextNode = toBeDeleted.next;
-            toBeDeleted.value = nextNode.value;
+            toBeDeleted.val = nextNode.val;
             toBeDeleted.next = nextNode.next;
         } else if (headNode.next == toBeDeleted) {
             // 链表只有一个节点，要把头指针设为NULL
@@ -39,7 +39,7 @@ public class 删除链表指定元素 {
         one.next = two;
         delete(head, one);
         while (head != null) {
-            System.out.println(head.value);
+            System.out.println(head.val);
             head = head.next;
         }
     }

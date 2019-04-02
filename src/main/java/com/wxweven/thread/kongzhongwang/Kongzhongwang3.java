@@ -56,7 +56,7 @@ public class Kongzhongwang3 extends Thread {
          * 这个是张孝祥老师的解决版本，也比较佩服，扩展性比我的更好
          *
          * @param key
-         * @param value
+         * @param val
          */
 
         private Map<String, String> lockMap = new ConcurrentHashMap<>();
