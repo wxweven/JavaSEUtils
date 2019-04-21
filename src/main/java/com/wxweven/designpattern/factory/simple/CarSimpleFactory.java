@@ -1,5 +1,7 @@
 package com.wxweven.designpattern.factory.simple;
 
+import com.wxweven.designpattern.factory.data.*;
+
 /**
  * 简单工厂模式
  *
@@ -10,7 +12,7 @@ package com.wxweven.designpattern.factory.simple;
  * @blog wxweven.com
  * @Copyright: Copyright (c) wxweven 2009 - 2017
  */
-public class CarFactory {
+public class CarSimpleFactory {
     private static ICar car = null;
 
     public static ICar getCar(CarEnum carEnum) {

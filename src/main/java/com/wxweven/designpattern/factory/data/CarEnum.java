@@ -1,4 +1,4 @@
-package com.wxweven.designpattern.factory.simple;
+package com.wxweven.designpattern.factory.data;
 
 public enum CarEnum {
     BENZ, // 奔驰

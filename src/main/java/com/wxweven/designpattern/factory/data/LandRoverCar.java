@@ -1,4 +1,4 @@
-package com.wxweven.designpattern.factory.simple;
+package com.wxweven.designpattern.factory.data;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
