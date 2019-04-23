@@ -13,6 +13,7 @@ public class ArrayPairSum {
     public void test(){
         int res = arrayPairSumSoultion(new int[]{4,2,1,3});
         System.out.println(res);
+        ArrayPairSum.class.getDeclaredMethods();
     }
 
     public static int arrayPairSumSoultion(int[] arr){
