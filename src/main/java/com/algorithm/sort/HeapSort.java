@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class HeapSort {
     private static int[] arr = new int[]{
-            1, 0, 10, 20, 3, 5, 6, 4, 9, 8, 12, 17, 34, 11
+            4, 10, 20, 3, 5, 6, 78
     };
 
     public static void main(String[] args) {
@@ -20,10 +20,10 @@ public class HeapSort {
      */
     private static void buildHeap(int[] data) {
         // 没有子节点的才需要创建最大堆，从最后一个节点的父节点开始
-        int startIndex = getParentIndex(data.length - 1);
+        int parentIndex = getParentIndex(data.length - 1);
 
         // 从尾端开始创建最大堆，每次都是正确的堆
-        for (int i = startIndex; i >= 0; i--) {
+        for (int i = parentIndex; i >= 0; i--) {
             sink(data, data.length, i);
         }
     }
@@ -80,13 +80,13 @@ public class HeapSort {
         int minIndex = parentIndex;
 
         int leftIndex = getChildLeftIndex(parentIndex);
-        if (leftIndex < heapSize) {
-            minIndex = arr[leftIndex] < arr[parentIndex] ? leftIndex : parentIndex;
+        if (leftIndex < heapSize && arr[leftIndex] < arr[parentIndex]) {
+            minIndex = leftIndex;
         }
 
         int rightIndex = getChildRightIndex(parentIndex);
-        if (rightIndex < heapSize) {
-            minIndex = arr[rightIndex] < arr[minIndex] ? rightIndex : minIndex;
+        if (rightIndex < heapSize && arr[rightIndex] < arr[minIndex]) {
+            minIndex = rightIndex;
         }
 
         return minIndex;
@@ -103,7 +103,7 @@ public class HeapSort {
     }
 
     /**
-     * 左子节点position注意括号，加法优先级更高
+     * 左子节点position
      *
      * @return
      * @paramcurrent
@@ -120,26 +120,5 @@ public class HeapSort {
      */
     private static int getChildRightIndex(int current) {
         return (current + 1) << 1;
-    }
-
-    private static void print2(int[] data) {
-        int pre = -2;
-        for (int i = 0; i < data.length; i++) {
-            if (pre < (int) getLog(i + 1)) {
-                pre = (int) getLog(i + 1);
-                System.out.println();
-            }
-            System.out.print(data[i] + "|");
-        }
-    }
-
-    /**
-     * 以2为底的对数
-     *
-     * @return
-     * @paramparam
-     */
-    private static double getLog(double param) {
-        return Math.log(param) / Math.log(2);
     }
 }
