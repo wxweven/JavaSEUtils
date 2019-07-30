@@ -98,6 +98,13 @@
         </dependency>
 
         <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>4.1</version>
+        </dependency>
+
+
+        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.6</version>
@@ -196,7 +203,7 @@
             <version>1.3.11</version>
             <type>jar</type>
             <scope>system</scope>
-            <systemPath>/Users/wxweven/soft/Java/btrace/build/btrace-agent.jar</systemPath>
+            <systemPath>/Users/wxweven/Java/btrace/build/btrace-agent.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.sun.btrace</groupId>
@@ -204,7 +211,7 @@
             <version>1.3.11</version>
             <type>jar</type>
             <scope>system</scope>
-            <systemPath>/Users/wxweven/soft/Java/btrace/build/btrace-boot.jar</systemPath>
+            <systemPath>/Users/wxweven/Java/btrace/build/btrace-boot.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.sun.btrace</groupId>
@@ -212,7 +219,13 @@
             <version>1.3.11</version>
             <type>jar</type>
             <scope>system</scope>
-            <systemPath>/Users/wxweven/soft/Java/btrace/build/btrace-client.jar</systemPath>
+            <systemPath>/Users/wxweven/Java/btrace/build/btrace-client.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>22.0</version>
         </dependency>
 
     </dependencies>
