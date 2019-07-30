@@ -17,10 +17,11 @@
         <log4j.version>2.8.2</log4j.version>
         <slf4j.version>1.7.13</slf4j.version>
         <mysql.version>5.1.35</mysql.version>
-        <spring.version>4.3.18</spring.version>
+        <spring.version>4.3.18.RELEASE</spring.version>
         <jackson.version>2.8.11.1</jackson.version>
         <poi.version>3.13</poi.version>
         <httpclient.version>4.5.3</httpclient.version>
+        <jmh.version>1.14.1</jmh.version>
     </properties>
 
     <dependencies>
@@ -102,12 +103,23 @@
             <artifactId>commons-collections4</artifactId>
             <version>4.1</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.openjdk.jmh</groupId>
+            <artifactId>jmh-core</artifactId>
+            <version>${jmh.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjdk.jmh</groupId>
+            <artifactId>jmh-generator-annprocess</artifactId>
+            <version>${jmh.version}</version>
+            <scope>provided</scope>
+        </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.6</version>
+            <version>1.16.8</version>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
@@ -127,12 +139,6 @@
             <groupId>dom4j</groupId>
             <artifactId>dom4j</artifactId>
             <version>1.6.1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.6</version>
         </dependency>
 
         <dependency>
