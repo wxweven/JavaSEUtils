@@ -9,7 +9,7 @@ package com.wxweven.designpattern.factory.data;
  * @blog wxweven.com
  * @Copyright: Copyright (c) wxweven 2009 - 2017
  */
-public interface ICar {
+public interface Car {
 
     /**
      * 获取Car名称
