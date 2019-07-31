@@ -29,7 +29,7 @@ public class ArticleMatcher extends CourseMatcher {
             return false;
         }
 
-        CourseMatcher nextMatcher = getNextMatcher();
+        CourseMatcher nextMatcher = getMatcherChainHandler().getNextMatcher();
         if (nextMatcher != null) {
             return nextMatcher.match(course);
         }

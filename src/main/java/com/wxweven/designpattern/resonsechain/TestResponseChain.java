@@ -6,6 +6,7 @@
  */
 package com.wxweven.designpattern.resonsechain;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,10 +32,22 @@ public class TestResponseChain {
         CourseMatcher articleMatcher = new ArticleMatcher();
         CourseMatcher videoMatcher = new VideoMatcher();
 
-        CourseMatcher.initMatchers(Arrays.asList(basicCourseMatcher, articleMatcher, videoMatcher));
-        boolean result = CourseMatcher.getFirstMatcher().match(course);
+        CourseMatcherChainHandler matcherChainHandler = new CourseMatcherChainHandler();
+
+        CourseMatcherChainHandler matcherChainHandler2 = new CourseMatcherChainHandler();
+
+
+        matcherChainHandler.initMatchers(Arrays.asList(basicCourseMatcher, articleMatcher, videoMatcher));
+        boolean result = matcherChainHandler.doMatch(course);
+
+        matcherChainHandler2.initMatchers(Arrays.asList(basicCourseMatcher, videoMatcher));
+        boolean result2 = matcherChainHandler2.doMatch(course);
 
         LOGGER.info("result={}", result);
+        Assert.assertTrue(result);
+
+        LOGGER.info("result2={}", result2);
+        Assert.assertTrue(result2);
     }
 
     @Test
@@ -48,10 +61,17 @@ public class TestResponseChain {
         CourseMatcher articleMatcher = new ArticleMatcher();
         CourseMatcher videoMatcher = new VideoMatcher();
 
-        CourseMatcher.initMatchers(Arrays.asList(basicCourseMatcher, articleMatcher, videoMatcher));
-        boolean result = CourseMatcher.getFirstMatcher().match(course);
+        CourseMatcherChainHandler matcherChainHandler = new CourseMatcherChainHandler();
+        matcherChainHandler.initMatchers(Arrays.asList(basicCourseMatcher, articleMatcher, videoMatcher));
+        boolean result = matcherChainHandler.getFirstMatcher().match(course);
+
+        CourseMatcherChainHandler matcherChainHandler2 = new CourseMatcherChainHandler();
+        matcherChainHandler2.initMatchers(Arrays.asList(basicCourseMatcher, videoMatcher));
+        boolean result2 = matcherChainHandler2.doMatch(course);
 
         LOGGER.info("result={}", result);
+        Assert.assertFalse(result);
+
     }
 
     @Test
@@ -65,9 +85,12 @@ public class TestResponseChain {
         CourseMatcher articleMatcher = new ArticleMatcher();
         CourseMatcher videoMatcher = new VideoMatcher();
 
-        CourseMatcher.initMatchers(Arrays.asList(basicCourseMatcher, articleMatcher, videoMatcher));
-        boolean result = CourseMatcher.getFirstMatcher().match(course);
+        CourseMatcherChainHandler matcherChainHandler = new CourseMatcherChainHandler();
+        matcherChainHandler.initMatchers(Arrays.asList(basicCourseMatcher, articleMatcher, videoMatcher));
+        boolean result = matcherChainHandler.getFirstMatcher().match(course);
 
         LOGGER.info("result={}", result);
+        Assert.assertFalse(result);
+
     }
 }
