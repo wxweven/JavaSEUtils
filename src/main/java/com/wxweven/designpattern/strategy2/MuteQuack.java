@@ -1,4 +1,4 @@
-package com.wxweven.designpattern.strategy;
+package com.wxweven.designpattern.strategy2;
 
 public class MuteQuack implements QuackBehavior {
 	public void quack() {

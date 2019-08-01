@@ -1,4 +1,4 @@
-package com.wxweven.designpattern.strategy;
+package com.wxweven.designpattern.strategy2;
 
 public class FlyRocketPowered implements FlyBehavior {
 	public void fly() {
