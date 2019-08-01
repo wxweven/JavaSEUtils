@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
  * @blog wxweven.com
  * @Copyright: Copyright (c) wxweven 2009 - 2017
  */
-public class BenzCar implements ICar {
+public class BenzCar implements Car {
     private static Logger logger = LoggerFactory.getLogger(BenzCar.class);
 
 

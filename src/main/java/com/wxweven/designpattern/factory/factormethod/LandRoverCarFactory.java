@@ -1,6 +1,6 @@
 package com.wxweven.designpattern.factory.factormethod;
 
-import com.wxweven.designpattern.factory.data.ICar;
+import com.wxweven.designpattern.factory.data.Car;
 import com.wxweven.designpattern.factory.data.LandRoverCar;
 
 /**
@@ -9,7 +9,7 @@ import com.wxweven.designpattern.factory.data.LandRoverCar;
  */
 public class LandRoverCarFactory extends CarFactory {
     @Override
-    public ICar createCar() {
+    public Car createCar() {
         return new LandRoverCar();
     }
 }

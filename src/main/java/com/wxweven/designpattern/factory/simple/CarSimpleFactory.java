@@ -1,35 +1,41 @@
 package com.wxweven.designpattern.factory.simple;
 
 import com.wxweven.designpattern.factory.data.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 简单工厂模式
  *
  * @author wxweven
- * @date 2017年3月8日
  * @version 1.0
+ * @date 2017年3月8日
  * @email wxweven@qq.com
  * @blog wxweven.com
  * @Copyright: Copyright (c) wxweven 2009 - 2017
  */
 public class CarSimpleFactory {
-    private static ICar car = null;
+    private static final Logger LOGGER = LoggerFactory.getLogger(CarSimpleFactory.class);
 
-    public static ICar getCar(CarEnum carEnum) {
+    public static Car getCar(CarEnum carEnum) {
         switch (carEnum) {
-        case BENZ:
-            car = new BenzCar();
-            break;
-        case BWM:
-            car = new BMWCar();
-            break;
-        case LANDROVER:
-            car = new LandRoverCar();
-            break;
-        default:
-            break;
+            case BENZ:
+                return new BenzCar();
+            case BWM:
+                return new BMWCar();
+            case LANDROVER:
+                return new LandRoverCar();
+            default:
+                return null;
         }
+    }
 
-        return car;
+    public static Car getCarByClass(Class c) {
+        try {
+            return (Car) Class.forName(c.getName()).newInstance();
+        } catch (Exception e) {
+            LOGGER.error("CarSimpleFactory::getCarByClass 异常: c={}", c, e);
+        }
+        return null;
     }
 }
