@@ -12,7 +12,11 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
@@ -54,5 +58,36 @@ public class ListTest {
                 .collect(Collectors.toList());
 
         System.out.println(sortedCoinGoodsIds);
+    }
+
+    @Test
+    public void test() {
+        Set<Integer> s1 = Collections.emptySet();
+        Set<Integer> s2 = Collections.emptySet();
+        Assert.assertFalse(CollectionUtils.containsAny(s1, s2));
+
+        s1 = Collections.emptySet();
+        s2 = new HashSet<>(Arrays.asList(1, 2, 3));
+        Assert.assertFalse(CollectionUtils.containsAny(s1, s2));
+
+        s1 = new HashSet<>(Arrays.asList(1, 2, 3));
+        s2 = Collections.emptySet();
+        Assert.assertFalse(CollectionUtils.containsAny(s1, s2));
+
+        s1 = new HashSet<>(Arrays.asList(1, 2, 3));
+        s2 = new HashSet<>(Arrays.asList(2, 4, 5));
+        Assert.assertTrue(CollectionUtils.containsAny(s1, s2));
+
+    }
+
+    @Test
+    public void test2() {
+        Set<Integer> s1 = new HashSet<>(Arrays.asList(1, 2, 3));
+        Collection<Integer> subtract = CollectionUtils.subtract(s1, Collections.singletonList(3));
+        Assert.assertEquals(2, subtract.size());
+
+        s1 = Collections.emptySet();
+        subtract = CollectionUtils.subtract(s1, Collections.singletonList(3));
+        Assert.assertEquals(0, subtract.size());
     }
 }
