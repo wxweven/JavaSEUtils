@@ -1,9 +1,3 @@
-/**
- * @(#)LogTest.java, Jul 10, 2019.
- * <p>
- * Copyright 2019 fenbi.com. All rights reserved.
- * FENBI.COM PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
- */
 package com.wxweven.log;
 
 import org.apache.commons.lang3.StringUtils;
@@ -22,7 +16,7 @@ import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
 /**
- * @author wangxw03
+ * @author wxweven
  */
 public class LogTest {
     private static final Logger LOGGER = LoggerFactory.getLogger(LogTest.class);
@@ -49,12 +43,12 @@ public class LogTest {
 
     @Test
     public void test3() {
-        String string = "fsdfds@fenbi.com";
+        String string = "fsdfds@qq.com";
         String string2 = "fsdfds";
 
 
-        String s = StringUtils.endsWithIgnoreCase(string, "@fenbi.com") ? string : string + "@fenbi.com";
-        String s2 = StringUtils.endsWithIgnoreCase(string2, "@fenbi.com") ? string2 : string2 + "@fenbi.com";
+        String s = StringUtils.endsWithIgnoreCase(string, "@qq.com") ? string : string + "@qq.com";
+        String s2 = StringUtils.endsWithIgnoreCase(string2, "@qq.com") ? string2 : string2 + "@qq.com";
 
 
         System.out.println(s);

@@ -1,9 +1,3 @@
-/**
- * @(#)Test.java, Jul 30, 2019.
- * <p>
- * Copyright 2019 fenbi.com. All rights reserved.
- * FENBI.COM PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
- */
 package com.wxweven.designpattern.resonsechain;
 
 import org.junit.Assert;
@@ -14,7 +8,7 @@ import org.slf4j.LoggerFactory;
 import java.util.Arrays;
 
 /**
- * @author wangxw03
+ * @author wxweven
  */
 public class TestResponseChain {
     private static final Logger LOGGER = LoggerFactory.getLogger(Test.class);
