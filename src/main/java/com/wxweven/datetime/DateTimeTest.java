@@ -28,7 +28,6 @@ public class DateTimeTest {
         int days = Days.daysBetween(d1, d2).getDays();
         LOGGER.info("days: {}", days);
 
-
         DateTime dateTime = new DateTime();
         DateTime dateTime1 = dateTime.minusHours(1);
 
@@ -43,6 +42,17 @@ public class DateTimeTest {
         String timestamp2Str = DateUtils.timestamp2Str(dateTime1.getMillis(), "HHmmss");
         System.out.println(timestamp2Str);
 
+    }
+
+    @Test
+    public void testStartDate() {
+        DateTime dateTime = new DateTime();
+        System.out.println(DateUtils.date2Str(dateTime.toDate()));
+
+        DateTime dateTime1 = dateTime.withTimeAtStartOfDay()
+                .withDayOfMonth(1);
+
+        System.out.println(DateUtils.date2Str(dateTime1.toDate()));
     }
 
     @Test
