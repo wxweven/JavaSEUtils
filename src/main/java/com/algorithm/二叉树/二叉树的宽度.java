@@ -35,9 +35,8 @@ public class 二叉树的宽度 {
         int maxWidth = 1;
         while (!queue.isEmpty()) {
             int curLevelSize = queue.size();
-            if (maxWidth < curLevelSize) {
-                maxWidth = curLevelSize;
-            }
+            maxWidth = Math.max(maxWidth, curLevelSize);
+
             for (int i = 0; i < curLevelSize; i++) {
                 currentNode = queue.poll();
                 if (currentNode.left != null) {
