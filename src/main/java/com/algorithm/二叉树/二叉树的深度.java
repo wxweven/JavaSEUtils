@@ -6,7 +6,7 @@ import org.junit.Test;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import static com.algorithm.二叉树.BiTreeNode.setSubTree;
+import static com.algorithm.二叉树.TreeNode.setSubTree;
 
 /**
  * @author wxweven
@@ -19,7 +19,7 @@ public class 二叉树的深度 {
      * @param root 根节点
      * @return
      */
-    public static int getDeep(BiTreeNode root) {
+    public static int getDeep(TreeNode root) {
         if (root == null) {
             return 0;
         }
@@ -38,13 +38,13 @@ public class 二叉树的深度 {
      * @param root 根节点
      * @return
      */
-    public int getDeep2(BiTreeNode root) {
+    public int getDeep2(TreeNode root) {
         if (root == null) {
             return 0;
         }
 
-        BiTreeNode current;
-        Queue<BiTreeNode> queue = new LinkedList<>();
+        TreeNode current;
+        Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
 
         int depth = 0;
@@ -69,15 +69,15 @@ public class 二叉树的深度 {
 
     @Test
     public void getDepthTest() {
-        BiTreeNode node1 = new BiTreeNode(1);
-        BiTreeNode node2 = new BiTreeNode(2);
-        BiTreeNode node3 = new BiTreeNode(3);
-        BiTreeNode node4 = new BiTreeNode(4);
-        BiTreeNode node5 = new BiTreeNode(5);
-        BiTreeNode node6 = new BiTreeNode(6);
-        BiTreeNode node7 = new BiTreeNode(7);
-        BiTreeNode node8 = new BiTreeNode(8);
-        BiTreeNode node9 = new BiTreeNode(9);
+        TreeNode node1 = new TreeNode(1);
+        TreeNode node2 = new TreeNode(2);
+        TreeNode node3 = new TreeNode(3);
+        TreeNode node4 = new TreeNode(4);
+        TreeNode node5 = new TreeNode(5);
+        TreeNode node6 = new TreeNode(6);
+        TreeNode node7 = new TreeNode(7);
+        TreeNode node8 = new TreeNode(8);
+        TreeNode node9 = new TreeNode(9);
 
         setSubTree(node1, node2, node3);
         setSubTree(node2, node4, node5);
@@ -89,8 +89,8 @@ public class 二叉树的深度 {
         int biTreeDepth2 = getDeep2(node1);
         System.out.println("树的深度：" + biTreeDepth);
         System.out.println("树的深度：" + biTreeDepth2);
-        Assert.assertTrue(biTreeDepth == 4);
-        Assert.assertTrue(biTreeDepth2 == 4);
+        Assert.assertEquals(4, biTreeDepth);
+        Assert.assertEquals(4, biTreeDepth2);
 
     }
 

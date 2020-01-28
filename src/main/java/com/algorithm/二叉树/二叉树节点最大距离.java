@@ -1,14 +1,15 @@
 package com.algorithm.二叉树;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 public class 二叉树节点最大距离 {
-    public static int getLongestPath(BiTreeNode root) {
+    public static int getLongestPath(TreeNode root) {
         if (root == null) {
             return 0;
         }
 
-        int curPath = getDepth(root.left) +getDepth(root.right);
+        int curPath = getDepth(root.left) + getDepth(root.right);
 
         int leftPath = getLongestPath(root.left);
         int rightPath = getLongestPath(root.right);
@@ -17,7 +18,7 @@ public class 二叉树节点最大距离 {
 
     }
 
-    public static int getDepth(BiTreeNode root) {
+    public static int getDepth(TreeNode root) {
         if (root == null) {
             return 0;
         }
@@ -29,10 +30,12 @@ public class 二叉树节点最大距离 {
     }
 
     @Test
-    public void test(){
-        BiTreeNode root = BiTreeNode.initTree();
+    public void test() {
+        TreeNode root = TreeNode.initTree();
 
         int longestPath = getLongestPath(root);
         System.out.println(longestPath);
+
+        Assert.assertEquals(5, longestPath);
     }
 }

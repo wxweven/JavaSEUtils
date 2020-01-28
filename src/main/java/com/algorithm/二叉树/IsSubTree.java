@@ -3,7 +3,7 @@ package com.algorithm.二叉树;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static com.algorithm.二叉树.BiTreeNode.setSubTree;
+import static com.algorithm.二叉树.TreeNode.setSubTree;
 
 /*
  * 面试题18：树的子结构(递归)
@@ -11,7 +11,7 @@ import static com.algorithm.二叉树.BiTreeNode.setSubTree;
  * 思路：两步：1，递归调用hasSubtree先遍历A中有没有结点的值和B的根结点相同，如果有，调用doesTree1HaveTree2做第二步判断。2，判断AB结构是否相同，即递归判断左右结点。
  */
 public class IsSubTree {
-    public static boolean doesTree1HasTree2(BiTreeNode rootA, BiTreeNode rootB) {
+    public static boolean doesTree1HasTree2(TreeNode rootA, TreeNode rootB) {
         // 注意if顺序
         if (rootB == null) {
             return true;
@@ -29,7 +29,7 @@ public class IsSubTree {
                 && doesTree1HasTree2(rootA.right, rootB.right);
     }
 
-    public static boolean hasSubTree(BiTreeNode rootA, BiTreeNode rootB) {
+    public static boolean hasSubTree(TreeNode rootA, TreeNode rootB) {
         if (rootA == null || rootB == null) {
             return false;
         }
@@ -52,18 +52,18 @@ public class IsSubTree {
 
     @Test
     public void isSubTree() {
-        BiTreeNode rootA = BiTreeNode.initTree();
+        TreeNode rootA = TreeNode.initTree();
 
-        BiTreeNode rootB = new BiTreeNode(2);
-        BiTreeNode node4 = new BiTreeNode(4);
-        BiTreeNode node5 = new BiTreeNode(5);
+        TreeNode rootB = new TreeNode(2);
+        TreeNode node4 = new TreeNode(4);
+        TreeNode node5 = new TreeNode(5);
         setSubTree(rootB, node4, node5);
 
         boolean hasSubTree = hasSubTree(rootA, rootB);
         System.out.println(hasSubTree);
         Assert.assertTrue(hasSubTree);
 
-        rootB = new BiTreeNode(3);
+        rootB = new TreeNode(3);
         setSubTree(rootB, node4, node5);
         hasSubTree = hasSubTree(rootA, rootB);
         System.out.println(hasSubTree);

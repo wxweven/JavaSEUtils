@@ -13,7 +13,7 @@ import java.util.Stack;
  * 可以看出保存路径的数据结构是后进先出的栈。
  */
 public class 求指定和的所有路径 {
-    public static void findPath(BiTreeNode root, int expectedSum) {
+    public static void findPath(TreeNode root, int expectedSum) {
         if (root == null) {
             return;
         }
@@ -21,7 +21,7 @@ public class 求指定和的所有路径 {
         findPath2(root, expectedSum, path);
     }
 
-    public static void findPath2(BiTreeNode root, int expectedSum, Stack<Integer> path) {
+    public static void findPath2(TreeNode root, int expectedSum, Stack<Integer> path) {
         //第一步，把结点加入路径，累加和
         path.push(root.data);
 
@@ -51,11 +51,11 @@ public class 求指定和的所有路径 {
 
 
     public static void main(String[] args) {
-        BiTreeNode a = new BiTreeNode(10);
-        BiTreeNode b = new BiTreeNode(5);
-        BiTreeNode c = new BiTreeNode(12);
-        BiTreeNode d = new BiTreeNode(4);
-        BiTreeNode e = new BiTreeNode(7);
+        TreeNode a = new TreeNode(10);
+        TreeNode b = new TreeNode(5);
+        TreeNode c = new TreeNode(12);
+        TreeNode d = new TreeNode(4);
+        TreeNode e = new TreeNode(7);
         a.left = b;
         a.right = c;
         b.left = d;

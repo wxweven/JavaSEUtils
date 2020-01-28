@@ -1,15 +1,15 @@
 package com.algorithm.二叉树;
 
 public class 二叉搜索树与双向链表 {
-    private BiTreeNode head = null;
-    private BiTreeNode tail = null;
+    private TreeNode head = null;
+    private TreeNode tail = null;
 
-    public BiTreeNode Convert(BiTreeNode root) {
+    public TreeNode Convert(TreeNode root) {
         visit(root);
         return head;
     }
 
-    public void visit(BiTreeNode root) {
+    public void visit(TreeNode root) {
         if (root == null) {
             return;
         }
@@ -18,7 +18,7 @@ public class 二叉搜索树与双向链表 {
         visit(root.right);
     }
 
-    public void createList(BiTreeNode cur) {
+    public void createList(TreeNode cur) {
         cur.left = tail;//把当前的节点接到链表的尾部
         if (tail != null) {//双向连接
             tail.right = cur;

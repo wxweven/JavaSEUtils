@@ -9,7 +9,7 @@ import org.junit.Test;
  */
 public class IsBSTTree {
 
-    public static boolean isBST(BiTreeNode root, int min, int max) {
+    public static boolean isBST(TreeNode root, int min, int max) {
         if (root == null) {
             return true;
         }
@@ -24,18 +24,18 @@ public class IsBSTTree {
         return false;
     }
 
-    public static boolean isBSTTree(BiTreeNode root) {
+    public static boolean isBSTTree(TreeNode root) {
         return isBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
     }
 
     @Test
     public void isBSTTree() {
-        BiTreeNode biTreeNode = BiTreeNode.getBSTTree();
+        TreeNode biTreeNode = TreeNode.getBSTTree();
         boolean isBST = isBSTTree(biTreeNode);
         System.out.println(isBST);
         Assert.assertTrue(isBST);
 
-//        BiTreeNode biTreeNode2 = BiTreeNode.initTree();
+//        TreeNode biTreeNode2 = TreeNode.initTree();
 //        boolean isBST2 = isBSTTree(biTreeNode2);
 //        System.out.println(isBST2);
 //        Assert.assertFalse(isBST2);

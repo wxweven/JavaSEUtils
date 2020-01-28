@@ -14,7 +14,7 @@ public class 求指定和的路径 {
 
     @Test
     public void testFindPath() {
-        BiTreeNode root = BiTreeNode.initTree();
+        TreeNode root = TreeNode.initTree();
         boolean path = findPath(root, 7);
         if (path) {
             int size = stack.size();
@@ -26,7 +26,7 @@ public class 求指定和的路径 {
         System.out.println(path);
     }
 
-    public boolean findPath(BiTreeNode root, int n) {
+    public boolean findPath(TreeNode root, int n) {
         if (root == null || root.getData() > n) {
             return false;
         }
