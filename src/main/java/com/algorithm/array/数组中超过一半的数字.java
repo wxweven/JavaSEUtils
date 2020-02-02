@@ -9,7 +9,8 @@ package com.algorithm.array;
 public class 数组中超过一半的数字 {
     public static void main(String[] args) {
         moreThanHalfNum1(new int[]{1, 8, 5, 2, 2, 2, 2});
-        moreThanHalfNum2(new int[]{2, 4, 2, 6, 6, 6, 6});
+        moreThanHalfNum2(new int[]{2, 4, 2, 8, 6, 6, 6, 6});
+        moreThanHalfNum2(new int[]{2, 4});
     }
 
     // 思路1，快排的思想
@@ -39,7 +40,17 @@ public class 数组中超过一半的数字 {
         }
     }
 
-    //思路2：根据数组特点
+    /**
+     * 数组中有一个数字出现的次数操作数组长度的一半，即它的出现次数比其他所有数字出现的次数的总和还要多。
+     * 因此，我们可以考虑在遍历数组的时候保存两个值：一个是数组中的一个数字，一个是次数。
+     * 当我们遍历到下一个数字的时候，如果下一个数字和我们之前保存的数字相同，则次数加1；
+     * 如果下一个数字和我们之前保存的数字不同，则次数减1.
+     * 如果次数为0，我们需要保存下一个数字，并把次数设置为1.
+     * 由于我们要找的数字出现的次数比其他所有数字出现的次数之和还要多，那么要找的数字肯定是最后一次把次数设置为1时对应的数字。
+     * 最后一次把次数设置为1时对应的数字不一定就是超过一半的数字（有可能不存在）
+     *
+     * @param array
+     */
     private static void moreThanHalfNum2(int[] array) {
         if (array == null) {
             return;
@@ -51,11 +62,16 @@ public class 数组中超过一半的数字 {
             if (count == 0) {
                 number = array[i];
                 count = 1;
-            } else if (array[i] != number) {
-                count--;
-            } else {
+            } else if (array[i] == number) {
                 count++;
+            } else {
+                count--;
             }
+        }
+
+        if (count == 0) {
+            System.out.println("不用check，没有一半");
+            return;
         }
 
         if (check(array, number)) {
@@ -92,6 +108,7 @@ public class 数组中超过一半的数字 {
     }
 
     private static boolean check(int[] array, int number) {
+        System.out.println("check num:" + number);
         int times = 0;
         boolean isMoreThanHalf = false;
         for (int i = 0; i < array.length; i++) {

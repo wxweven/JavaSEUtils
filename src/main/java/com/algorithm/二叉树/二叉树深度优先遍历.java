@@ -8,13 +8,13 @@ public class 二叉树深度优先遍历 {
 
     @Test
     public void testDepthOrderTraversal() {
-        BiTreeNode root = BiTreeNode.initTree();
+        TreeNode root = TreeNode.initTree();
         depthOrderTraversal(root);
     }
 
     @Test
     public void testPreOrderTraverse1() {
-        BiTreeNode root = BiTreeNode.initTree();
+        TreeNode root = TreeNode.initTree();
         preOrderTraverse1(root);
     }
 
@@ -23,17 +23,17 @@ public class 二叉树深度优先遍历 {
      * 采用非递归实现
      * 需要辅助数据结构：栈
      */
-    public void depthOrderTraversal(BiTreeNode root) {
+    public void depthOrderTraversal(TreeNode root) {
         if (root == null) {
             System.out.println("empty tree");
             return;
         }
 
-        Stack<BiTreeNode> stack = new Stack<>();
+        Stack<TreeNode> stack = new Stack<>();
         stack.push(root);
 
         while (!stack.isEmpty()) {
-            BiTreeNode node = stack.pop();
+            TreeNode node = stack.pop();
             System.out.print(node.getData() + " ");
             if (node.right != null) {
                 stack.push(node.right);
@@ -46,7 +46,7 @@ public class 二叉树深度优先遍历 {
         System.out.print("\n");
     }
 
-    public void preOrderTraverse1(BiTreeNode root) {
+    public void preOrderTraverse1(TreeNode root) {
         if (root != null) {
             System.out.print(root.getData() + " ");
             preOrderTraverse1(root.left);

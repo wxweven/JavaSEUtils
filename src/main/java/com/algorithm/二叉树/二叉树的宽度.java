@@ -6,7 +6,7 @@ import org.junit.Test;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import static com.algorithm.二叉树.BiTreeNode.setSubTree;
+import static com.algorithm.二叉树.TreeNode.setSubTree;
 
 
 /**
@@ -21,23 +21,22 @@ public class 二叉树的宽度 {
      * @param root
      * @return
      */
-    public static int getBiTreeWidth(BiTreeNode root) {
+    public static int getBiTreeWidth(TreeNode root) {
         if (root == null) {
             return 0;
         }
 
-        Queue<BiTreeNode> queue = new LinkedList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
         // 初始条件，需要把头节点入列
         queue.offer(root);
 
-        BiTreeNode currentNode;
+        TreeNode currentNode;
 
         int maxWidth = 1;
         while (!queue.isEmpty()) {
             int curLevelSize = queue.size();
-            if (maxWidth < curLevelSize) {
-                maxWidth = curLevelSize;
-            }
+            maxWidth = Math.max(maxWidth, curLevelSize);
+
             for (int i = 0; i < curLevelSize; i++) {
                 currentNode = queue.poll();
                 if (currentNode.left != null) {
@@ -55,16 +54,16 @@ public class 二叉树的宽度 {
 
     @Test
     public void testGetBiTreeNode() {
-        BiTreeNode node1 = new BiTreeNode(1);
-        BiTreeNode node2 = new BiTreeNode(2);
-        BiTreeNode node3 = new BiTreeNode(3);
-        BiTreeNode node4 = new BiTreeNode(4);
-        BiTreeNode node5 = new BiTreeNode(5);
-        BiTreeNode node6 = new BiTreeNode(6);
-        BiTreeNode node7 = new BiTreeNode(7);
-        BiTreeNode node8 = new BiTreeNode(8);
-        BiTreeNode node9 = new BiTreeNode(9);
-        BiTreeNode node10 = new BiTreeNode(10);
+        TreeNode node1 = new TreeNode(1);
+        TreeNode node2 = new TreeNode(2);
+        TreeNode node3 = new TreeNode(3);
+        TreeNode node4 = new TreeNode(4);
+        TreeNode node5 = new TreeNode(5);
+        TreeNode node6 = new TreeNode(6);
+        TreeNode node7 = new TreeNode(7);
+        TreeNode node8 = new TreeNode(8);
+        TreeNode node9 = new TreeNode(9);
+        TreeNode node10 = new TreeNode(10);
 
         setSubTree(node1, node2, node3);
         setSubTree(node2, node4, node5);

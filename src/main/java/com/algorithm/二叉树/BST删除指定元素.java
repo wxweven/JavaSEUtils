@@ -9,7 +9,7 @@ import static com.algorithm.二叉树.二叉树层次遍历.travelByLevel;
  * @date 2018/11/1
  */
 public class BST删除指定元素 {
-    public static BiTreeNode deleteData(BiTreeNode root, int data) {
+    public static TreeNode deleteData(TreeNode root, int data) {
 
         // 如果根节点为null，直接返回null
         if (root == null) {
@@ -66,7 +66,7 @@ public class BST删除指定元素 {
              */
             else {
                 // 当前节点有两个孩子，右子树找最小的
-                BiTreeNode minNode = BiTreeNode.findMinNode(root.right);
+                TreeNode minNode = TreeNode.findMinNode(root.right);
                 // 和当前节点交换
                 root.data = minNode.data;
 
@@ -82,10 +82,10 @@ public class BST删除指定元素 {
 
     @Test
     public void testDeleteData() {
-        BiTreeNode root = BiTreeNode.getBSTTree();
+        TreeNode root = TreeNode.getBSTTree();
         travelByLevel(root);
 
-        BiTreeNode root2 = deleteData(root, 15);
+        TreeNode root2 = deleteData(root, 15);
         System.out.println();
 
         travelByLevel(root2);

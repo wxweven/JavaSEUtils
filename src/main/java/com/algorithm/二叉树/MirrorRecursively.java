@@ -6,9 +6,9 @@ package com.algorithm.二叉树;
  */
 public class MirrorRecursively {
     //递归，先交换结点的左右子结点，然后递归调用左右子结点。
-    static void mirrorRecursively(BiTreeNode tree) {
+    static void mirrorRecursively(TreeNode tree) {
         if (tree != null) {
-            BiTreeNode temp = tree.left;
+            TreeNode temp = tree.left;
             tree.left = tree.right;
             tree.right = temp;
             if (tree.left != null) mirrorRecursively(tree.left);

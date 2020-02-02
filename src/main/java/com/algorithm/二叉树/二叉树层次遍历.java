@@ -13,16 +13,16 @@ import java.util.Queue;
  */
 public class 二叉树层次遍历 {
 
-    public static void travelByLevel(BiTreeNode root) {
+    public static void travelByLevel(TreeNode root) {
         if (root == null) {
             return;
         }
 
-        Queue<BiTreeNode> queue = new LinkedList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
         // 初始条件，需要把头节点入列
         queue.offer(root);
 
-        BiTreeNode currentNode;
+        TreeNode currentNode;
 
         while (!queue.isEmpty()) {
             /**
@@ -57,12 +57,12 @@ public class 二叉树层次遍历 {
      *
      * @param root
      */
-    public static void travelByLevelS(BiTreeNode root) {
+    public static void travelByLevelS(TreeNode root) {
         if (root == null) {
             return;
         }
 
-        Queue<BiTreeNode> queue = new LinkedList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
 
         boolean flag = true;
@@ -72,7 +72,7 @@ public class 二叉树层次遍历 {
             List<Integer> list = new ArrayList<>();
 
             for (int i = 0; i < curLevelSize; i++) {
-                BiTreeNode curNode = queue.poll();
+                TreeNode curNode = queue.poll();
                 list.add(curNode.data);
 
                 if (curNode.left != null) {
@@ -108,7 +108,7 @@ public class 二叉树层次遍历 {
 
     @Test
     public void testTravelByLevel() {
-        BiTreeNode root = BiTreeNode.initTree();
+        TreeNode root = TreeNode.initTree();
 
         travelByLevel(root);
         System.out.println();
