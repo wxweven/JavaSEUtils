@@ -1,0 +1,268 @@
+[
+    {
+        "benchmark" : "com.wxweven.jmh.DistinctBenchmark.distinct1",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "warmupIterations" : 5,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "length" : "1000"
+        },
+        "primaryMetric" : {
+            "score" : 31.5475408951598,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 31.418051216990886,
+                "50.0" : 31.5475408951598,
+                "90.0" : 31.67703057332871,
+                "95.0" : 31.67703057332871,
+                "99.0" : 31.67703057332871,
+                "99.9" : 31.67703057332871,
+                "99.99" : 31.67703057332871,
+                "99.999" : 31.67703057332871,
+                "99.9999" : 31.67703057332871,
+                "100.0" : 31.67703057332871
+            },
+            "scoreUnit" : "us/op",
+            "rawData" : [
+                [
+                    31.418051216990886,
+                    31.67703057332871
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "benchmark" : "com.wxweven.jmh.DistinctBenchmark.distinct1",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "warmupIterations" : 5,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "length" : "10000"
+        },
+        "primaryMetric" : {
+            "score" : 375.89319281923406,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 374.19864701492537,
+                "50.0" : 375.89319281923406,
+                "90.0" : 377.5877386235427,
+                "95.0" : 377.5877386235427,
+                "99.0" : 377.5877386235427,
+                "99.9" : 377.5877386235427,
+                "99.99" : 377.5877386235427,
+                "99.999" : 377.5877386235427,
+                "99.9999" : 377.5877386235427,
+                "100.0" : 377.5877386235427
+            },
+            "scoreUnit" : "us/op",
+            "rawData" : [
+                [
+                    374.19864701492537,
+                    377.5877386235427
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "benchmark" : "com.wxweven.jmh.DistinctBenchmark.distinct1",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "warmupIterations" : 5,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "length" : "100000"
+        },
+        "primaryMetric" : {
+            "score" : 7651.657273828057,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 7124.043702127659,
+                "50.0" : 7651.657273828057,
+                "90.0" : 8179.2708455284555,
+                "95.0" : 8179.2708455284555,
+                "99.0" : 8179.2708455284555,
+                "99.9" : 8179.2708455284555,
+                "99.99" : 8179.2708455284555,
+                "99.999" : 8179.2708455284555,
+                "99.9999" : 8179.2708455284555,
+                "100.0" : 8179.2708455284555
+            },
+            "scoreUnit" : "us/op",
+            "rawData" : [
+                [
+                    8179.2708455284555,
+                    7124.043702127659
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "benchmark" : "com.wxweven.jmh.DistinctBenchmark.distinct2",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "warmupIterations" : 5,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "length" : "1000"
+        },
+        "primaryMetric" : {
+            "score" : 85.17950572827036,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 84.86915576271187,
+                "50.0" : 85.17950572827036,
+                "90.0" : 85.48985569382884,
+                "95.0" : 85.48985569382884,
+                "99.0" : 85.48985569382884,
+                "99.9" : 85.48985569382884,
+                "99.99" : 85.48985569382884,
+                "99.999" : 85.48985569382884,
+                "99.9999" : 85.48985569382884,
+                "100.0" : 85.48985569382884
+            },
+            "scoreUnit" : "us/op",
+            "rawData" : [
+                [
+                    84.86915576271187,
+                    85.48985569382884
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "benchmark" : "com.wxweven.jmh.DistinctBenchmark.distinct2",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "warmupIterations" : 5,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "length" : "10000"
+        },
+        "primaryMetric" : {
+            "score" : 819.092572836687,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 816.7155487804878,
+                "50.0" : 819.092572836687,
+                "90.0" : 821.4695968928863,
+                "95.0" : 821.4695968928863,
+                "99.0" : 821.4695968928863,
+                "99.9" : 821.4695968928863,
+                "99.99" : 821.4695968928863,
+                "99.999" : 821.4695968928863,
+                "99.9999" : 821.4695968928863,
+                "100.0" : 821.4695968928863
+            },
+            "scoreUnit" : "us/op",
+            "rawData" : [
+                [
+                    816.7155487804878,
+                    821.4695968928863
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "benchmark" : "com.wxweven.jmh.DistinctBenchmark.distinct2",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "warmupIterations" : 5,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "length" : "100000"
+        },
+        "primaryMetric" : {
+            "score" : 13169.860923986487,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 12674.728875,
+                "50.0" : 13169.860923986487,
+                "90.0" : 13664.992972972974,
+                "95.0" : 13664.992972972974,
+                "99.0" : 13664.992972972974,
+                "99.9" : 13664.992972972974,
+                "99.99" : 13664.992972972974,
+                "99.999" : 13664.992972972974,
+                "99.9999" : 13664.992972972974,
+                "100.0" : 13664.992972972974
+            },
+            "scoreUnit" : "us/op",
+            "rawData" : [
+                [
+                    13664.992972972974,
+                    12674.728875
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    }
+]
+
+
