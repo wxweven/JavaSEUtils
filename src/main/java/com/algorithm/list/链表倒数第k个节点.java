@@ -19,7 +19,7 @@ public class 链表倒数第k个节点 {
     public static ListNode find(ListNode headNode, int k) {
         if (headNode == null || k <= 0) {
             System.out.println("输入为空或k有误");
-            return null;
+            return null;ar
         }
         ListNode fast = headNode;
         ListNode slow = headNode;
