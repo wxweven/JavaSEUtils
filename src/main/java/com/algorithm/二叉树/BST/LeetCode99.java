@@ -1,9 +1,3 @@
-/**
- * @(#)LeetCode99.java, Feb 15, 2020.
- * <p>
- * Copyright 2020 fenbi.com. All rights reserved.
- * FENBI.COM PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
- */
 package com.algorithm.二叉树.BST;
 
 import com.algorithm.二叉树.TreeNode;
@@ -12,7 +6,7 @@ import com.algorithm.二叉树.TreeNode;
  * @author wxweven
  */
 public class LeetCode99 {
-    /**
+    /*
      * 题目描述：
      * Two elements of a binary search tree (BST) are swapped by mistake.
      *
