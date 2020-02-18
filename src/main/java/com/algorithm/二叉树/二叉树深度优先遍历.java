@@ -34,7 +34,7 @@ public class 二叉树深度优先遍历 {
 
         while (!stack.isEmpty()) {
             TreeNode node = stack.pop();
-            System.out.print(node.getData() + " ");
+            System.out.print(node.getVal() + " ");
             if (node.right != null) {
                 stack.push(node.right);
             }
@@ -48,7 +48,7 @@ public class 二叉树深度优先遍历 {
 
     public void preOrderTraverse1(TreeNode root) {
         if (root != null) {
-            System.out.print(root.getData() + " ");
+            System.out.print(root.getVal() + " ");
             preOrderTraverse1(root.left);
             preOrderTraverse1(root.right);
         }

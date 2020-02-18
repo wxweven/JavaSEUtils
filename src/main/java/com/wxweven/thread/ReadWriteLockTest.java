@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.wxweven.thread;
 
@@ -69,9 +69,9 @@ class Queue3 {
 	public void get() {
 		rwl.readLock().lock();// 读锁开始：可以允许其他线程来读，但不允许其他线程来写
 		try {
-			System.out.println(Thread.currentThread().getName() + " be ready to read data!");
+			System.out.println(Thread.currentThread().getName() + " be ready to read val!");
 			Thread.sleep(100);
-			System.out.println(Thread.currentThread().getName() + " has read data:" + data);
+			System.out.println(Thread.currentThread().getName() + " has read val:" + data);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		} finally {
@@ -81,16 +81,16 @@ class Queue3 {
 
 	/**
 	 * 写方法，排他锁，不允许其他线程来操作
-	 * 
+	 *
 	 * @param data
 	 */
 	public void put(Object data) {
 		rwl.writeLock().lock();
 		try {
-			System.out.println(Thread.currentThread().getName() + " be ready to write data!");
+			System.out.println(Thread.currentThread().getName() + " be ready to write val!");
 			Thread.sleep(100);
 			this.data = data;
-			System.out.println(Thread.currentThread().getName() + " has write data:" + data);
+			System.out.println(Thread.currentThread().getName() + " has write val:" + data);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		} finally {

@@ -27,11 +27,11 @@ public class 求指定和的路径 {
     }
 
     public boolean findPath(TreeNode root, int n) {
-        if (root == null || root.getData() > n) {
+        if (root == null || root.getVal() > n) {
             return false;
         }
 
-        int data = root.getData();
+        int data = root.getVal();
         if (data == n) {
             stack.push(data);
             return true;

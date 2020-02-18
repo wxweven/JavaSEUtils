@@ -21,7 +21,7 @@ public class IsSubTree {
             return false;
         }
 
-        if (rootA.data != rootB.data) {
+        if (rootA.val != rootB.val) {
             return false;
         }
 
@@ -36,7 +36,7 @@ public class IsSubTree {
 
         boolean result = false;
 
-        if (rootA.data == rootB.data) {
+        if (rootA.val == rootB.val) {
             result = doesTree1HasTree2(rootA, rootB);
         }
         if (!result) {

@@ -1,4 +1,6 @@
-package com.algorithm.二叉树;
+package com.algorithm.二叉树.BST;
+
+import com.algorithm.二叉树.TreeNode;
 
 /*
  * 面试题27：二叉搜索树与双向链表

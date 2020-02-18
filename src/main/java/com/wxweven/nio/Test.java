@@ -22,17 +22,17 @@ public class Test {
 	}
 
 	private static void transferTo() throws Exception {
-		RandomAccessFile fromFile = new RandomAccessFile("data/fromFile.txt", "rw");
+		RandomAccessFile fromFile = new RandomAccessFile("val/fromFile.txt", "rw");
 		FileChannel fromChannel = fromFile.getChannel();
 
-		RandomAccessFile toFile = new RandomAccessFile("data/toFile.txt", "rw");
+		RandomAccessFile toFile = new RandomAccessFile("val/toFile.txt", "rw");
 		FileChannel toChannel = toFile.getChannel();
 
 		long position = 0;
 		long count = fromChannel.size();
 
 		fromChannel.transferTo(position, count, toChannel);
-		
+
 		fromFile.close();
 		toFile.close();
 	}

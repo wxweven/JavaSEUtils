@@ -13,7 +13,7 @@ import java.nio.channels.FileChannel;
  FileChannel
  SocketChannel
  ServerSocketChannel
- 
+
  FileChannel 从文件中读写数据。
 
  DatagramChannel 能通过UDP读写网络中的数据。
@@ -24,7 +24,7 @@ import java.nio.channels.FileChannel;
 public class ChannelTest {
 
 	public static void main(String[] args) throws IOException {
-		RandomAccessFile aFile = new RandomAccessFile("data/nio-data.txt", "rw");
+		RandomAccessFile aFile = new RandomAccessFile("val/nio-val.txt", "rw");
 		FileChannel inChannel = aFile.getChannel();
 
 		ByteBuffer buf = ByteBuffer.allocate(1024);
@@ -42,16 +42,16 @@ public class ChannelTest {
 //			buf.clear();
 //			bytesRead = inChannel.read(buf);
 //		}
-		
+
 		while(true){
 			buf.clear();
 			int bytesRead = inChannel.read(buf);
 			System.out.println("Read " + bytesRead);
-			
+
 			if(bytesRead == -1){
 				break;
 			}
-			
+
 			buf.flip();
 			while(buf.hasRemaining()){
 				System.out.println((char)buf.get());

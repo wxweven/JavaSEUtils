@@ -23,7 +23,7 @@ public class 求指定和的所有路径 {
 
     public static void findPath2(TreeNode root, int expectedSum, Stack<Integer> path) {
         //第一步，把结点加入路径，累加和
-        path.push(root.data);
+        path.push(root.val);
 
         //第二步，如果结点是叶结点并满足值相等的条件，打印路径
         boolean isLeaf = (root.left == null && root.right == null);

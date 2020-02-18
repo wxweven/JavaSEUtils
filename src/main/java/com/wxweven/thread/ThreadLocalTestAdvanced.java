@@ -23,7 +23,7 @@ public class ThreadLocalTestAdvanced {
 				@Override
 				public void run() {
 					int data = new Random().nextInt();
-					System.out.println(Thread.currentThread().getName() + " has put data:" + data);
+					System.out.println(Thread.currentThread().getName() + " has put val:" + data);
 					MyThreadScopeData myData = MyThreadScopeData.getThreadInstance();// 得到当前线程的单例
 					// 设置当前线程上的单例对象的属性值
 					myData.setAge(data);// 设置age值
@@ -73,7 +73,7 @@ class MyThreadScopeData {
 
 	/**
 	 * 得到当前线程的单例
-	 * 
+	 *
 	 * @return
 	 */
 	public static MyThreadScopeData getThreadInstance() {

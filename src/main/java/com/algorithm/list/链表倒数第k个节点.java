@@ -19,7 +19,7 @@ public class 链表倒数第k个节点 {
     public static ListNode find(ListNode headNode, int k) {
         if (headNode == null || k <= 0) {
             System.out.println("输入为空或k有误");
-            return null;ar
+            return null;
         }
         ListNode fast = headNode;
         ListNode slow = headNode;
@@ -49,8 +49,8 @@ public class 链表倒数第k个节点 {
     }
 
     @Test
-    public  void test() {
-        ListNode head = ListNode.createLinkedList(Arrays.asList(5,67,89,90));
+    public void test() {
+        ListNode head = ListNode.createLinkedList(Arrays.asList(5, 67, 89, 90));
         ListNode.print(head);
 
         int k = 2;

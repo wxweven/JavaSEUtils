@@ -1,16 +1,16 @@
 package com.algorithm.二叉树;
 
 public class TreeNode {
-    public int data;
+    public int val;
     public TreeNode left;
     public TreeNode right;
 
     public TreeNode(int data) {
-        this.data = data;
+        this.val = data;
     }
 
     public TreeNode(int data, TreeNode left, TreeNode right) {
-        this.data = data;
+        this.val = data;
         this.left = left;
         this.right = right;
     }
@@ -75,12 +75,12 @@ public class TreeNode {
         return root;
     }
 
-    public int getData() {
-        return data;
+    public int getVal() {
+        return val;
     }
 
-    public TreeNode setData(int data) {
-        this.data = data;
+    public TreeNode setVal(int val) {
+        this.val = val;
         return this;
     }
 }

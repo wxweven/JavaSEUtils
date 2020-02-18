@@ -1,5 +1,6 @@
-package com.algorithm.二叉树;
+package com.algorithm.二叉树.BST;
 
+import com.algorithm.二叉树.TreeNode;
 import org.junit.Test;
 
 import static com.algorithm.二叉树.二叉树层次遍历.travelByLevel;
@@ -21,11 +22,11 @@ public class BST删除指定元素 {
          * 所以需要在左子树里面去删除，注意，这里的删除左子树，返回的是删除后的左子树的根节点，
          * 需要重新调节当前节点的左孩子
          */
-        if (data < root.getData()) {
+        if (data < root.getVal()) {
             // 递归删除左子树
             // 需要将当前节点的左孩子指向（删除后段左子树的根）
             root.left = deleteData(root.left, data);
-        } else if (data > root.getData()) {
+        } else if (data > root.getVal()) {
             // 同理，递归删除右子树
             root.right = deleteData(root.right, data);
         } else {
@@ -68,10 +69,10 @@ public class BST删除指定元素 {
                 // 当前节点有两个孩子，右子树找最小的
                 TreeNode minNode = TreeNode.findMinNode(root.right);
                 // 和当前节点交换
-                root.data = minNode.data;
+                root.val = minNode.val;
 
                 // 从右子树里面删除最小的，并且让当前节点的右孩子指向删除后的根
-                root.right = deleteData(root.right, root.data);
+                root.right = deleteData(root.right, root.val);
                 return root;
             }
         }

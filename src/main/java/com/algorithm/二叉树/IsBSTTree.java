@@ -14,7 +14,7 @@ public class IsBSTTree {
             return true;
         }
 
-        int data = root.data;
+        int data = root.val;
         if ((data >= min && data <= max)
                 && isBST(root.left, min, data)
                 && isBST(root.right, data, max)) {

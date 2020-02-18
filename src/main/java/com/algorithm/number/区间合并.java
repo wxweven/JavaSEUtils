@@ -26,6 +26,12 @@ public class 区间合并 {
         List<Interval> result = new ArrayList<>();
         Interval prev = null;
 
+        /**
+         * 排序后，后一个元素（记为next）的start一定是不小于前一个（记为prev）start的，
+         * 对于新添加的区间，如果next.start大于prev.end就说明这两个区间是分开的，要添
+         * 加一个新的区间，否则说明next.start在[prev.start, prev.end]内，则只要看
+         * next.end是否是大于prev.end，如果大于就要合并区间（扩大）
+         */
         for (Interval interval : sortedIntervals) {
             if (prev == null || interval.start > prev.end) {
                 prev = interval;

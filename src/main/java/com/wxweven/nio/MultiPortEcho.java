@@ -55,10 +55,10 @@ public class MultiPortEcho {
 
 					System.out.println("Got connection from " + sc);
 				} else if ((key.readyOps() & SelectionKey.OP_READ) == SelectionKey.OP_READ) {
-					// Read the data
+					// Read the val
 					SocketChannel sc = (SocketChannel) key.channel();
 
-					// Echo data
+					// Echo val
 					int bytesEchoed = 0;
 					while (true) {
 						echoBuffer.clear();

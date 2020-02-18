@@ -10,7 +10,7 @@ import java.nio.charset.Charset;
 import java.util.Iterator;
 
 /**
- * 
+ *
  * @author wxweven
  * @date 2014年9月14日
  * @version 1.0
@@ -27,7 +27,7 @@ public class NIOClient {
 	/**
 	 * 获得一个Socket通道，并对该通道做一些初始化的工作
 	 * @param ip 连接的服务器的ip
-	 * @param port  连接的服务器的端口号         
+	 * @param port  连接的服务器的端口号
 	 * @throws IOException
 	 */
 	public void initClient(String ip,int port) throws IOException {
@@ -37,7 +37,7 @@ public class NIOClient {
 		channel.configureBlocking(false);
 		// 获得一个通道管理器
 		this.selector = Selector.open();
-		
+
 		// 客户端连接服务器,其实方法执行并没有实现连接，需要在listen（）方法中调
 		//用channel.finishConnect();才能完成连接
 		channel.connect(new InetSocketAddress(ip,port));
@@ -67,7 +67,7 @@ public class NIOClient {
 					// 如果正在连接，则完成连接
 					if(channel.isConnectionPending()){
 						channel.finishConnect();
-						
+
 					}
 					// 设置成非阻塞
 					channel.configureBlocking(false);
@@ -76,7 +76,7 @@ public class NIOClient {
 					channel.write(ByteBuffer.wrap(new String("向服务端发送了一条信息").getBytes(LocalCharsetName)));
 					//在和服务端连接成功之后，为了可以接收到服务端的信息，需要给通道设置读的权限。
 					channel.register(this.selector, SelectionKey.OP_READ);
-					
+
 					// 获得了可读的事件
 				} else if (key.isReadable()) {
 						read(key);
@@ -89,7 +89,7 @@ public class NIOClient {
 	/**
 	 * 处理读取服务端发来的信息 的事件
 	 * @param key
-	 * @throws IOException 
+	 * @throws IOException
 	 */
 	public void read(SelectionKey key) throws IOException{
 		// 服务器可读取消息:得到事件发生的Socket通道
@@ -97,18 +97,18 @@ public class NIOClient {
 				// 创建读取的缓冲区
 				ByteBuffer buffer = ByteBuffer.allocate(10);
 				channel.read(buffer);
-//				byte[] data = buffer.array();
-//				String msg = new String(data).trim();
+//				byte[] val = buffer.array();
+//				String msg = new String(val).trim();
 				String msg = Charset.forName(LocalCharsetName).newDecoder().decode(buffer).toString();
 				System.out.println("客户端收到信息："+msg);
 				ByteBuffer outBuffer = ByteBuffer.wrap(msg.getBytes());
 				channel.write(outBuffer);// 将消息回送给客户端
 	}
-	
-	
+
+
 	/**
 	 * 启动客户端测试
-	 * @throws IOException 
+	 * @throws IOException
 	 */
 	public static void main(String[] args) throws IOException {
 		NIOClient client = new NIOClient();

@@ -25,7 +25,7 @@ public class 反转单链表 {
         return prev;
     }
 
-    // 递归方式
+    // 递归方式：图解 https://shimo.im/docs/kprTdCKwwxrRj3wr
     public static ListNode reverse2(ListNode head) {
 
         /*如果是空链或者只是单个节点的链表  将直接返回*/

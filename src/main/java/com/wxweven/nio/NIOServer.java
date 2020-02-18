@@ -74,7 +74,7 @@ public class NIOServer {
 					channel.write(ByteBuffer.wrap(new String("向客户端发送了一条信息").getBytes(LocalCharsetName)));
 					//在和客户端连接成功之后，为了可以接收到客户端的信息，需要给通道设置读的权限。
 					channel.register(this.selector, SelectionKey.OP_READ);
-					
+
 					// 获得了可读的事件
 				} else if (key.isReadable()) {
 						read(key);
@@ -87,7 +87,7 @@ public class NIOServer {
 	/**
 	 * 处理读取客户端发来的信息 的事件
 	 * @param key
-	 * @throws IOException 
+	 * @throws IOException
 	 */
 	public void read(SelectionKey key) throws IOException{
 		// 服务器可读取消息:得到事件发生的Socket通道
@@ -95,17 +95,17 @@ public class NIOServer {
 		// 创建读取的缓冲区
 		ByteBuffer buffer = ByteBuffer.allocate(10);
 		channel.read(buffer);
-//		byte[] data = buffer.array();
-//		String msg = new String(data).trim();
+//		byte[] val = buffer.array();
+//		String msg = new String(val).trim();
 		String msg = Charset.forName(LocalCharsetName).newDecoder().decode(buffer).toString();
 		System.out.println("服务端收到信息："+msg);
 		ByteBuffer outBuffer = ByteBuffer.wrap(msg.getBytes());
 		channel.write(outBuffer);// 将消息回送给客户端
 	}
-	
+
 	/**
 	 * 启动服务端测试
-	 * @throws IOException 
+	 * @throws IOException
 	 */
 	public static void main(String[] args) throws IOException {
 		NIOServer server = new NIOServer();
