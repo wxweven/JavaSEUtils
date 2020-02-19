@@ -76,7 +76,7 @@ public class LeetCode99 {
             }
 
             // 第二个乱序数，就是『最后一次』前一个数比后一个数大的那个『后一个数』
-            // 所以，每次讲second赋值为root即可
+            // 所以，每次将second赋值为root即可
             second = root;
         }
 

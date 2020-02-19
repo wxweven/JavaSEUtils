@@ -5,6 +5,8 @@ package com.algorithm.二叉树;
  */
 public class LeetCode100 {
     /*
+     * 检查两个二叉树是否完全一样
+     *
      * Given two binary trees, write a function to check if they are the same or not.
      *
      * Two binary trees are considered the same if they are structurally identical and the nodes have the same value.
