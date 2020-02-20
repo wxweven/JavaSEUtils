@@ -1,6 +1,6 @@
-package com.algorithm.二叉树.pathSum;
+package com.algorithm.btree.pathSum;
 
-import com.algorithm.二叉树.TreeNode;
+import com.algorithm.btree.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;

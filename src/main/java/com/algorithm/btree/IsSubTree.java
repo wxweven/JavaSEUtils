@@ -1,9 +1,9 @@
-package com.algorithm.二叉树;
+package com.algorithm.btree;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import static com.algorithm.二叉树.TreeNode.setSubTree;
+import static com.algorithm.btree.TreeNode.setSubTree;
 
 /*
  * 面试题18：树的子结构(递归)

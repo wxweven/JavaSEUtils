@@ -1,6 +1,6 @@
-package com.algorithm.二叉树.lastorder;
+package com.algorithm.btree.postorder;
 
-import com.algorithm.二叉树.TreeNode;
+import com.algorithm.btree.TreeNode;
 import org.junit.Assert;
 import org.junit.Test;
 

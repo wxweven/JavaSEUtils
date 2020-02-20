@@ -1,4 +1,4 @@
-package com.algorithm.二叉树;
+package com.algorithm.btree;
 
 import java.util.Stack;
 

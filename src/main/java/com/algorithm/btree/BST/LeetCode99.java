@@ -1,6 +1,6 @@
-package com.algorithm.二叉树.BST;
+package com.algorithm.btree.BST;
 
-import com.algorithm.二叉树.TreeNode;
+import com.algorithm.btree.TreeNode;
 
 /**
  * @author wxweven

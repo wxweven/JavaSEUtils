@@ -1,18 +1,19 @@
-package com.algorithm.二叉树;
+package com.algorithm.btree.depth;
 
+import com.algorithm.btree.TreeNode;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
-import static com.algorithm.二叉树.TreeNode.setSubTree;
+import static com.algorithm.btree.TreeNode.setSubTree;
 
 /**
  * @author wxweven
  * @date 2018/10/27
  */
-public class 二叉树的深度 {
+public class DepthOfBTree {
     /**
      * 递归求解树的深度
      *
@@ -93,5 +94,4 @@ public class 二叉树的深度 {
         Assert.assertEquals(4, biTreeDepth2);
 
     }
-
 }

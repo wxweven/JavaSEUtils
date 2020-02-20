@@ -1,9 +1,9 @@
-package com.algorithm.二叉树.BST;
+package com.algorithm.btree.BST;
 
-import com.algorithm.二叉树.TreeNode;
+import com.algorithm.btree.TreeNode;
 import org.junit.Test;
 
-import static com.algorithm.二叉树.二叉树层次遍历.travelByLevel;
+import static com.algorithm.btree.levelorder.二叉树层次遍历.travelByLevel;
 
 /**
  * @author wxweven

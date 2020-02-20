@@ -1,5 +1,6 @@
-package com.algorithm.二叉树;
+package com.algorithm.btree.levelorder;
 
+import com.algorithm.btree.TreeNode;
 import org.junit.Test;
 
 import java.util.ArrayList;

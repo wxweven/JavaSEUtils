@@ -1,4 +1,4 @@
-package com.algorithm.二叉树;
+package com.algorithm.btree;
 
 public class 二叉搜索树与双向链表 {
     private TreeNode head = null;

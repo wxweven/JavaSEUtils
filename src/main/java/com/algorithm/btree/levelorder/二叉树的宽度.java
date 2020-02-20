@@ -1,12 +1,13 @@
-package com.algorithm.二叉树;
+package com.algorithm.btree.levelorder;
 
+import com.algorithm.btree.TreeNode;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
-import static com.algorithm.二叉树.TreeNode.setSubTree;
+import static com.algorithm.btree.TreeNode.setSubTree;
 
 
 /**
