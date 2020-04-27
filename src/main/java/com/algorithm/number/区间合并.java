@@ -4,13 +4,48 @@ import org.apache.commons.collections4.CollectionUtils;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class 区间合并 {
+
+    @Test
+    public void test2() {
+        int[][] intervals = new int[4][2];
+        intervals[0] = new int[]{1, 3};
+        intervals[1] = new int[]{2, 6};
+        intervals[2] = new int[]{8, 10};
+        intervals[3] = new int[]{15, 18};
+
+        int[][] merge = merge(intervals);
+    }
+
+    public int[][] merge(int[][] intervals) {
+        if (intervals == null || intervals.length == 0) {
+            return new int[0][0];
+        }
+
+        Arrays.sort(intervals, Comparator.comparingInt(arr -> arr[0]));
+
+        int[][] result = new int[intervals.length][2];
+        int index = -1;
+        int[] prev = null;
+
+        for (int[] interval : intervals) {
+            if (prev == null || prev[1] < interval[0]) {
+                index++;
+                result[index][0] = interval[0];
+                result[index][1] = interval[1];
+                prev = interval;
+            } else if (prev[1] < interval[1]) {
+                result[index][1] = interval[1];
+                prev[1] = interval[1];
+            }
+        }
+
+        return  Arrays.copyOf(result, index+1);
+    }
+
     /**
      * 解题思路：https://blog.csdn.net/DERRANTCM/article/details/47120501
      */
