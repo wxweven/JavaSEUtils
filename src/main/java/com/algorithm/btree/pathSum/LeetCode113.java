@@ -58,7 +58,7 @@ public class LeetCode113 {
         nodes.add(val);
 
         if (isLeaf(root) && val == target) {
-            res.add(new ArrayList(nodes));
+            res.add(new ArrayList<>(nodes));
         }
 
         helper(root.left, target - val, nodes);

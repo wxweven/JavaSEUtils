@@ -68,8 +68,8 @@ public class TreeNode {
             return null;
         }
 
-        if (root.left != null) {
-            return findMinNode(root.left);
+        while (root.left != null) {
+            root = root.left;
         }
 
         return root;
