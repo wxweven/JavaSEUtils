@@ -1,6 +1,11 @@
 package com.algorithm.btree;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Queue;
+import java.util.Set;
 
 public class 二叉树公共父节点 {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
@@ -14,6 +19,7 @@ public class 二叉树公共父节点 {
         parent.put(root, null);
         queue.offer(root);
 
+        // 循环终止的条件：p和q的父节点都已在map中
         while (!parent.containsKey(p) || !parent.containsKey(q)) {
             TreeNode curNode = queue.poll();
             if (curNode.left != null) {

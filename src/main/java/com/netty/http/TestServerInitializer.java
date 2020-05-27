@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 
 
 public class TestServerInitializer extends ChannelInitializer<SocketChannel> {
+
     private static final Logger LOGGER = LoggerFactory.getLogger(TestHttpServerHandler.class);
 
     @Override
@@ -22,11 +23,11 @@ public class TestServerInitializer extends ChannelInitializer<SocketChannel> {
         //加入一个netty 提供的httpServerCodec codec =>[coder - decoder]
         //HttpServerCodec 说明
         //1. HttpServerCodec 是netty 提供的处理http的 编-解码器
-        pipeline.addLast("MyHttpServerCodec",new HttpServerCodec());
+        pipeline.addLast("MyHttpServerCodec", new HttpServerCodec());
         //2. 增加一个自定义的handler
         pipeline.addLast("MyTestHttpServerHandler", new TestHttpServerHandler());
 
-       LOGGER.info("ok~~~~");
+        LOGGER.info("ok~~~~");
 
     }
 }

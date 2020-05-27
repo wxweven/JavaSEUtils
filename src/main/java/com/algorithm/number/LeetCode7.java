@@ -3,6 +3,8 @@ package com.algorithm.number;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * @author wxweven
  */
@@ -55,6 +57,11 @@ public class LeetCode7 {
         Assert.assertEquals(123, reverse(321));
         Assert.assertEquals(-123, reverse(-321));
         Assert.assertEquals(0, reverse(Integer.MAX_VALUE));
+
+        TimeUnit timeUnit = TimeUnit.MINUTES;
+
+        long l = timeUnit.toSeconds(2);
+        System.out.println(l);
 
     }
 }

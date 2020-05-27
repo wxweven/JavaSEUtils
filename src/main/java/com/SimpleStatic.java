@@ -23,6 +23,9 @@ public class SimpleStatic {
 
     @Test
     public void test() {
+        List<Integer> s = Collections.emptyList();
+        s.stream().forEach(System.out::println);
+
         Map<Integer, Integer> res = new HashMap<>();
 
 

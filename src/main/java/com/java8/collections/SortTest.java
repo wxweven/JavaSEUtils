@@ -15,23 +15,24 @@ import java.util.stream.IntStream;
  * Created by wxweven on 2017/3/21.
  */
 public class SortTest {
-    private static Logger  LOGGER = LoggerFactory.getLogger(SortTest.class);
-    private List<SortBean> beans  = new ArrayList<>();
+    private static Logger LOGGER = LoggerFactory.getLogger(SortTest.class);
+    private List<SortBean> beans = new ArrayList<>();
 
     @Before
     public void setup() {
         IntStream.range(1, 3)
-                 .forEach(i -> beans.add(new SortBean(i, "name" + i, i + 10)));
+                .forEach(i -> beans.add(new SortBean(i, "name" + i, i + 10)));
     }
 
 
     @Test
     public void testSortProperty() {
-        LOGGER.debug("before sort, beans:{}", beans);
-        beans.sort(Comparator.comparing(SortBean::getName)
-                             .reversed() // 按name降序排序
-                             .thenComparing(SortBean::getAge)); // 再按age升序排序
+        LOGGER.info("before sort, beans:{}", beans);
+        beans.sort(Comparator.comparing((SortBean sortBean) -> sortBean.getName())
+                .reversed() // 按name降序排序
+                .thenComparing(SortBean::getAge)
+        ); // 再按age升序排序
 
-        LOGGER.debug("after sort, beans:{}", beans);
+        LOGGER.info("after sort, beans:{}", beans);
     }
 }

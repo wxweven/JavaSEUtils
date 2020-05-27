@@ -4,6 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
+import org.junit.Test;
 
 import java.util.Date;
 
@@ -194,4 +195,26 @@ public class DateUtils {
             return StringUtils.EMPTY;
         }
     }
+
+    public static long get7DaysBeforeNow() {
+        DateTime now = DateTime.now();
+        return now.minusDays(7).getMillis();
+    }
+
+    @Test
+    public void test() {
+        long daysBeforeNow = get7DaysBeforeNow();
+        System.out.println(daysBeforeNow);
+
+        double d = 2.3;
+        Integer id = (int) d;
+        System.out.println(id);
+
+
+        Long l = 3333L;
+        id = l.intValue();
+        System.out.println(id);
+    }
+
+
 }
