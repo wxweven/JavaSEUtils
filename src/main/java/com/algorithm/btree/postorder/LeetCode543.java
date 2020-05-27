@@ -4,11 +4,17 @@ import com.algorithm.btree.TreeNode;
 import org.junit.Assert;
 import org.junit.Test;
 
+/**
+ * 求二叉树的直径（即最远的任意两个节点之间的距离）
+ *
+ * same method with 124,687 and 543
+ */
 public class LeetCode543 {
+
     int res = 0;
 
     public int diameterOfBinaryTree(TreeNode root) {
-        if (root == null) {
+        if(root==null){
             return 0;
         }
 
