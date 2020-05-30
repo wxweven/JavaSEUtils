@@ -1,9 +1,11 @@
 package com.algorithm.btree;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 /*
- * 面试题25：二叉树中和为某一值的路径
+ * 面试题25：二叉树中和为某一值的所有路径
  * 输入一个二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径，路径为从根结点一直到叶结点。
  * 思路：四步:
  * 1，既然是先输出根结点，那么肯定是先序遍历，把结点添加到输出路径中并累加其值;
@@ -13,12 +15,36 @@ import java.util.Stack;
  * 可以看出保存路径的数据结构是后进先出的栈。
  */
 public class 求指定和的所有路径 {
+    private static List<List<Integer>> res = new ArrayList<>();
+
     public static void findPath(TreeNode root, int expectedSum) {
         if (root == null) {
             return;
         }
         Stack<Integer> path = new Stack<>();
         findPath2(root, expectedSum, path);
+    }
+
+    public static void helper(TreeNode root, int expectedSum, Stack<Integer> path) {
+        path.push(root.val);
+
+        if (isLeaf(root) && getCurrentSum(path) == expectedSum) {
+            res.add(new ArrayList<>(path));
+        }
+
+        if (root.left != null) {
+            helper(root.left, expectedSum, path);
+        }
+
+        if (root.right != null) {
+            helper(root.right, expectedSum, path);
+        }
+
+        path.pop();
+    }
+
+    private static boolean isLeaf(TreeNode root) {
+        return root.left == null && root.right == null;
     }
 
     public static void findPath2(TreeNode root, int expectedSum, Stack<Integer> path) {
@@ -45,8 +71,8 @@ public class 求指定和的所有路径 {
 
     private static int getCurrentSum(Stack<Integer> stack) {
         return stack.stream()
-                    .mapToInt(Integer::intValue)
-                    .sum();
+                .mapToInt(Integer::intValue)
+                .sum();
     }
 
 

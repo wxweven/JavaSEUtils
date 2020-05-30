@@ -51,23 +51,42 @@ public class 最长不重复子串 {
 
 
         /*
-         * i 代表正常的遍历顺序，j代表不重复子串的起点
-         * 初始条件，j=0，不重复子串的起点就是 'abcabcbb' 中的 'a'
+         * right 代表正常的遍历顺序，left代表不重复子串的起点
+         * 初始条件，left=0，不重复子串的起点就是 'abcabcbb' 中的 'a'
          * 每次遍历，将遍历到的字符加入set
-         * 当i=3时，set中的元素为"abc"，这时候再要加入'a'时，发现有重复，就需要删除j指向的'a'，
+         * 当right=3时，set中的元素为"abc"，这时候再要加入'a'时，发现有重复，就需要删除left指向的'a'，
          * 同时j就要往后移位，直到指向新的不重复的子串的起点；这里需要注意的是while循环，因为有可能子串是"abcb",重复的元素是'b'，
-         * 这时候仅仅删除j指向的a是不够的，必须要让j指向c才可以
+         * 这时候仅仅删除left指向的a是不够的，必须要让left指向c才可以
          *
          * a b c a b c b b
-         * j=0
+         * left=0
          * @param s
          * @return
          */
+<<<<<<< HEAD
+        int left = 0;
+        for (int right = 0; right < chars.length; right++) {
+            char c = chars[right];
+            while (charSet.contains(c)) {
+                charSet.remove(chars[left]);
+                left++;
+            }
+
+=======
+
+        // i 代表正常的遍历顺序，j代表不重复子串的起点
         for (int i = 0, j = 0; i < chars.length; i++) {
             char c = chars[i];
+
+            // 当前重复字符为c
             while (charSet.contains(c)) {
-                charSet.remove(chars[j++]);
+                // 循环的目的是把重复字符和重复字符之前的字符都从set中删除
+                charSet.remove(chars[j]);
+                j++;
             }
+
+            // 下面两步是每次循环都需要做的
+>>>>>>> 90df0daa5b6a708c92ef67da7dff260ad2326550
             charSet.add(c);
             max = Math.max(max, charSet.size());
 

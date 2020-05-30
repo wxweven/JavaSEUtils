@@ -1,25 +1,21 @@
-package com.algorithm.btree;
+package com.algorithm.btree.levelorder;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.Queue;
-import java.util.Set;
+import com.algorithm.btree.TreeNode;
 
-public class 二叉树公共父节点 {
+import java.util.*;
+
+public class LeetCode236 {
+
+    /**
+     * Lowest Common Ancestor of a Binary Tree
+     */
+
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        if (root == null || p == root || q == root) {
-            return root;
-        }
-
         Map<TreeNode, TreeNode> parent = new HashMap<>();
         Queue<TreeNode> queue = new LinkedList<>();
-
         parent.put(root, null);
         queue.offer(root);
 
-        // 循环终止的条件：p和q的父节点都已在map中
         while (!parent.containsKey(p) || !parent.containsKey(q)) {
             TreeNode curNode = queue.poll();
             if (curNode.left != null) {
@@ -33,14 +29,13 @@ public class 二叉树公共父节点 {
             }
         }
 
-        Set<TreeNode> pParents = new HashSet<>();
+        Set<TreeNode> pAncestors = new HashSet<>();
         while (p != null) {
-            // 自己也要加到自己的parent数组中，不然q是p的子节点的时候，就错了
-            pParents.add(p);
+            pAncestors.add(p);
             p = parent.get(p);
         }
 
-        while (!pParents.contains(q)) {
+        while (!pAncestors.contains(q)) {
             q = parent.get(q);
         }
 

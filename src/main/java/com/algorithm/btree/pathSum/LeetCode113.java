@@ -4,6 +4,7 @@ import com.algorithm.btree.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * @author wxweven
@@ -35,21 +36,21 @@ public class LeetCode113 {
      * ]
      */
 
-    List<List<Integer>> res = new ArrayList<>();
+    private List<List<Integer>> res = new ArrayList<>();
 
     public List<List<Integer>> pathSum(TreeNode root, int sum) {
         if (root == null) {
             return res;
         }
 
-        List<Integer> nodes = new ArrayList<>();
+        Stack<Integer> nodes = new Stack<>();
 
         helper(root, sum, nodes);
 
         return res;
     }
 
-    public void helper(TreeNode root, int target, List<Integer> nodes) {
+    public void helper(TreeNode root, int target, Stack<Integer> nodes) {
         if (root == null) {
             return;
         }
@@ -57,14 +58,24 @@ public class LeetCode113 {
         int val = root.val;
         nodes.add(val);
 
+<<<<<<< HEAD
+        if (isLeaf(root) && getSum(nodes) == target) {
+=======
         if (isLeaf(root) && val == target) {
-            res.add(new ArrayList(nodes));
+>>>>>>> 90df0daa5b6a708c92ef67da7dff260ad2326550
+            res.add(new ArrayList<>(nodes));
         }
 
         helper(root.left, target - val, nodes);
         helper(root.right, target - val, nodes);
 
-        nodes.remove(nodes.size() - 1);
+        nodes.pop();
+    }
+
+    private int getSum(Stack<Integer> nodes) {
+        return nodes.stream()
+                .mapToInt(Integer::intValue)
+                .sum();
     }
 
     public boolean isLeaf(TreeNode root) {

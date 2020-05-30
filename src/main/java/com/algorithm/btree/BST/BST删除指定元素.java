@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import static com.algorithm.btree.levelorder.二叉树层次遍历.travelByLevel;
 
+
 /**
  * @author wxweven
  * @date 2018/11/1
@@ -31,30 +32,22 @@ public class BST删除指定元素 {
             root.right = deleteData(root.right, data);
         } else {
             /*
-             * 要删除当前节点，有三种情况
+             * 要删除当前节点，有2种情况
              */
 
             /*
-             * case1: 当前节点是叶节点，没有左右孩子，直接删除就可以了。
-             * 也就是让外层的 left 或 right 指向null
-             */
-            if (root.left == null && root.right == null) {
-                // 让外层调用的 left 或 right 指向null，即删除当前节点
-                // 所以这里是返回null
-                return null;
-            }
-
-            /*
-             * case2: 当前节点节点只有一个孩子，
+             * case1: 当前节点节点只有一个孩子，
              * 那么可以删除当前节点，并且让当前节点的父节点指向自己的孩子。
              * 分为两种情况：
              *      没有左孩子，那么让父节点指向右孩子
              *      没有右孩子，那么让父节点指向左孩子
              */
-            else if (root.left == null) {
+            if (root.left == null) {
                 // case2: 当前节点只有一个孩子
                 return root.right;
-            } else if (root.right == null) {
+            }
+
+            if (root.right == null) {
                 return root.left;
             }
 
@@ -65,16 +58,13 @@ public class BST删除指定元素 {
              * （也可以从左子树里面找最大的，和当前节点交换，然后删除左子树中值最大的那个节点）
              * 之所以从右子树里找最小的和当前节点交换，是为了保持BST的特性
              */
-            else {
-                // 当前节点有两个孩子，右子树找最小的
-                TreeNode minNode = TreeNode.findMinNode(root.right);
-                // 和当前节点交换
-                root.val = minNode.val;
+            // 当前节点有两个孩子，右子树找最小的
+            TreeNode minNode = TreeNode.findMinNode(root.right);
+            // 和当前节点交换
+            root.val = minNode.val;
 
-                // 从右子树里面删除最小的，并且让当前节点的右孩子指向删除后的根
-                root.right = deleteData(root.right, root.val);
-                return root;
-            }
+            // 从右子树里面删除最小的，并且让当前节点的右孩子指向删除后的根
+            root.right = deleteData(root.right, minNode.val);
         }
 
         // 最后，返回删除后树的根

@@ -38,8 +38,7 @@ public class 求指定和的路径 {
         }
 
         int newValue = n - data;
-        boolean left = findPath(root.left, newValue);
-        boolean result = left || findPath(root.right, newValue);
+        boolean result = findPath(root.left, newValue) || findPath(root.right, newValue);
         if (result) {
             stack.push(data);
         }
