@@ -14,9 +14,9 @@
         <disruptor.version>3.3.2</disruptor.version>
 
         <junit.version>4.12</junit.version>
-        <log4j.version>2.8.2</log4j.version>
+        <log4j.version>2.13.3</log4j.version>
         <slf4j.version>1.7.13</slf4j.version>
-        <mysql.version>5.1.35</mysql.version>
+        <mysql.version>8.0.16</mysql.version>
         <spring.version>4.3.18.RELEASE</spring.version>
         <poi.version>3.13</poi.version>
         <poi.version>3.13</poi.version>
@@ -126,7 +126,7 @@
         <dependency>
             <groupId>commons-beanutils</groupId>
             <artifactId>commons-beanutils</artifactId>
-            <version>1.9.2</version>
+            <version>1.9.4</version>
         </dependency>
 
         <dependency>
@@ -200,7 +200,7 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>23.0</version>
+            <version>24.1.1</version>
         </dependency>
         <!--<dependency>-->
             <!--<groupId>com.sun.btrace</groupId>-->
