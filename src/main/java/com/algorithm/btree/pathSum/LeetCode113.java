@@ -58,11 +58,7 @@ public class LeetCode113 {
         int val = root.val;
         nodes.add(val);
 
-<<<<<<< HEAD
-        if (isLeaf(root) && getSum(nodes) == target) {
-=======
         if (isLeaf(root) && val == target) {
->>>>>>> 90df0daa5b6a708c92ef67da7dff260ad2326550
             res.add(new ArrayList<>(nodes));
         }
 

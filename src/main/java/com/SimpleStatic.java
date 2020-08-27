@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
@@ -23,6 +24,11 @@ public class SimpleStatic {
 
     @Test
     public void test() {
+        List<Integer> integers = Arrays.asList(1, 2);
+        String str = String.format("id=%d,ids=%s", 0, integers.toString());
+
+        System.out.println(str);
+
         List<Integer> s = Collections.emptyList();
         s.stream().forEach(System.out::println);
 

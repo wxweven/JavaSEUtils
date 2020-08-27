@@ -14,22 +14,23 @@ import static com.algorithm.btree.TreeNode.setSubTree;
  * @date 2018/10/27
  */
 public class DepthOfBTree {
+
     /**
      * 递归求解树的深度
      *
      * @param root 根节点
      * @return
      */
-    public static int getDeep(TreeNode root) {
+    public static int getDepth(TreeNode root) {
         if (root == null) {
             return 0;
         }
 
-        int lchilddeep = getDeep(root.left);//求左子树的深度
-        int rchilddeep = getDeep(root.right);//求右子树的深度
+        int leftDepth = getDepth(root.left);//求左子树的深度
+        int rightDepth = getDepth(root.right);//求右子树的深度
 
         // 左子树和右子树深度较大的那个加一等于整个树的深度
-        return Math.max(lchilddeep, rchilddeep) + 1;
+        return Math.max(leftDepth, rightDepth) + 1;
     }
 
     /**
@@ -86,7 +87,7 @@ public class DepthOfBTree {
         setSubTree(node5, node7, node8);
         setSubTree(node6, node9, null);
 
-        int biTreeDepth = getDeep(node1);
+        int biTreeDepth = getDepth(node1);
         int biTreeDepth2 = getDeep2(node1);
         System.out.println("树的深度：" + biTreeDepth);
         System.out.println("树的深度：" + biTreeDepth2);
