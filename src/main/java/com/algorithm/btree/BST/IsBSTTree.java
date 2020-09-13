@@ -29,7 +29,7 @@ public class IsBSTTree {
         return isBST(root.left, min, root.val)
                 && isBST(root.right, root.val, max);
     }
-
+    
     @Test
     public void isBSTTree() {
         TreeNode biTreeNode = TreeNode.getBSTTree();
