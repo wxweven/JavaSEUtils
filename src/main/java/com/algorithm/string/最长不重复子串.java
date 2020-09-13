@@ -63,17 +63,6 @@ public class 最长不重复子串 {
          * @param s
          * @return
          */
-<<<<<<< HEAD
-        int left = 0;
-        for (int right = 0; right < chars.length; right++) {
-            char c = chars[right];
-            while (charSet.contains(c)) {
-                charSet.remove(chars[left]);
-                left++;
-            }
-
-=======
-
         // i 代表正常的遍历顺序，j代表不重复子串的起点
         for (int i = 0, j = 0; i < chars.length; i++) {
             char c = chars[i];
@@ -86,7 +75,6 @@ public class 最长不重复子串 {
             }
 
             // 下面两步是每次循环都需要做的
->>>>>>> 90df0daa5b6a708c92ef67da7dff260ad2326550
             charSet.add(c);
             max = Math.max(max, charSet.size());
 

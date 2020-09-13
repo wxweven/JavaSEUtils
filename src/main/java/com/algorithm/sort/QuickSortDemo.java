@@ -54,6 +54,39 @@ public class QuickSortDemo {
         quickSort(low + 1, right);
     }
 
+    public static void quickSort2(int left, int right) {
+        if (left >= right) {
+            return;
+        }
+
+        int low = left;
+        int high = right;
+
+        int record = arr[left];
+
+        while (low < high) {
+            while (low < high && arr[high] >= record) {
+                high--;
+            }
+
+            while (low < high && arr[low] <= record) {
+                low++;
+            }
+
+            if (low < high) {
+                int tmp = arr[low];
+                arr[low] = arr[high];
+                arr[high] = tmp;
+            }
+        }
+
+        arr[left] = arr[low];
+        arr[low] = record;
+
+        quickSort2(left, low - 1);
+        quickSort2(low + 1, right);
+    }
+
     /**
      * 初始化数组
      */
@@ -61,7 +94,6 @@ public class QuickSortDemo {
         for (int i = 0; i < ARR_LEN; i++) {
             arr[i] = new Random().nextInt(100);
         }
-
     }
 
     /**
@@ -87,7 +119,7 @@ public class QuickSortDemo {
         System.out.println("before sort:");
         printArr();
 
-        quickSort(0, ARR_LEN - 1);
+        quickSort2(0, ARR_LEN - 1);
 
         System.out.println("after sort:");
         printArr();

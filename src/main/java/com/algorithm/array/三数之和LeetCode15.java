@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class LeetCode15 {
+public class 三数之和LeetCode15 {
 
     /*
      * 3 sum
