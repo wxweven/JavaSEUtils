@@ -9,7 +9,7 @@ public class OddEvenPrinterEx {
     private final Condition condition = lock.newCondition();
 
     private final int limit;
-    private volatile int count;
+    private int count;
 
     public OddEvenPrinterEx(int limit, int initCount) {
         this.limit = limit;

@@ -14,30 +14,39 @@ public class TwoThreadEachPrint {
     public static void main(String[] args) throws InterruptedException {
         TwoThreadEachPrint main = new TwoThreadEachPrint();
 
-        new Thread(main.new ThreadA(Arrays.asList(1, 2, 3, 4, 5))).start();
-        Thread.sleep(100);
-        new Thread(main.new ThreadA(Arrays.asList("A", "B", "C", "D", "E"))).start();
+        new Thread(main.new ThreadC(Arrays.asList(1, 2, 3, 4, 5))).start();
+        new Thread(main.new ThreadC(Arrays.asList("A", "B", "C", "D", "E"))).start();
+
     }
 
-    class ThreadA implements Runnable {
-        List<Object> list;
-        int i = 0;
+    class ThreadC implements Runnable {
+        private List<Object> list;
+        private int i = 0;
 
-        public ThreadA(List<Object> list) {
+        public ThreadC(List<Object> list) {
             this.list = list;
         }
 
+        @Override
         public void run() {
             lock.lock();
             try {
-                while (i < list.size()) {
-                    System.out.println(list.get(i++));
+                for (Object o : list) {
+                    // 1. 打印当前元素
+                    System.out.println(o);
+
+                    // 2. 打印完成后，先唤醒其他阻塞的线程
+                    // 这里一定是先唤醒其他线程，然后再阻塞自己，
+                    // 如果先阻塞自己，再唤醒all，有可能把自己也唤醒
                     condition.signalAll();
+
+                    // 3. 然后再阻塞自己
                     condition.await();
                 }
-            } catch (Exception e) {
+            } catch (InterruptedException e) {
                 e.printStackTrace();
             } finally {
+                // 4. 最后再释放锁
                 lock.unlock();
             }
         }
