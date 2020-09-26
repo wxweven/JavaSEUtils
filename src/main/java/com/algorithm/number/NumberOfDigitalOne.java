@@ -27,7 +27,7 @@ public class NumberOfDigitalOne {
     }
 
     @Test
-    public void test(){
+    public void test() {
         NumberOfDigitalOne obj = new NumberOfDigitalOne();
 
         int count = obj.count(12);
