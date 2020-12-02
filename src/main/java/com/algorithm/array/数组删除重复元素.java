@@ -61,6 +61,14 @@ public class 数组删除重复元素 {
         Assert.assertEquals(2, len);
         Assert.assertEquals(1, arr[0]);
         Assert.assertEquals(2, arr[1]);
+
+        int[] arr2 = new int[]{1, 2, 2, 3};
+
+        int len2 = removeDuplicated(arr2);
+        Assert.assertEquals(3, len2);
+        Assert.assertEquals(1, arr2[0]);
+        Assert.assertEquals(2, arr2[1]);
+        Assert.assertEquals(3, arr2[2]);
     }
 
 }
