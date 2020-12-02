@@ -1,9 +1,3 @@
-/**
- * @(#)数组删除重复元素.java, 7月 20, 2020.
- * <p>
- * Copyright 2020 fenbi.com. All rights reserved.
- * FENBI.COM PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
- */
 package com.algorithm.array;
 
 import org.junit.Assert;

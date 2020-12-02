@@ -1,9 +1,3 @@
-/**
- * @(#)Tets.java, 10月 26, 2020.
- * <p>
- * Copyright 2020 fenbi.com. All rights reserved.
- * FENBI.COM PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
- */
 package com.algorithm.array;
 
 /**

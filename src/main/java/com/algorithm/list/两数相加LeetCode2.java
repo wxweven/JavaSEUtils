@@ -1,9 +1,3 @@
-/**
- * @(#)两数相加LeetCode2.java, 9月 06, 2020.
- * <p>
- * Copyright 2020 fenbi.com. All rights reserved.
- * FENBI.COM PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
- */
 package com.algorithm.list;
 
 /**

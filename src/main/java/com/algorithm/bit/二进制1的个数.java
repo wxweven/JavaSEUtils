@@ -1,9 +1,3 @@
-/**
- * @(#)二进制1的个数.java, 9月 10, 2020.
- * <p>
- * Copyright 2020 fenbi.com. All rights reserved.
- * FENBI.COM PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
- */
 package com.algorithm.bit;
 
 import org.junit.Assert;
