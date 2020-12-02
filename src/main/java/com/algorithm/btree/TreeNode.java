@@ -42,7 +42,7 @@ public class TreeNode {
         TreeNode node7 = new TreeNode(17);
         TreeNode node8 = new TreeNode(1);
         TreeNode node9 = new TreeNode(9);
-        TreeNode node10 = new TreeNode(9);
+        TreeNode node10 = new TreeNode(10);
 
         setSubTree(node1, node2, node3);
         setSubTree(node2, node4, node5);

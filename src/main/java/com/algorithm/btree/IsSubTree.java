@@ -18,7 +18,7 @@ public class IsSubTree {
             return false;
         }
 
-        // 中序遍历，先看根节点开始的树是否相同
+        // 先序遍历，先看根节点开始的树是否相同
         if (isSameTree(rootA, rootB)) {
             return true;
         }
