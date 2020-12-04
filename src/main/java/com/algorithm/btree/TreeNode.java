@@ -15,6 +15,16 @@ public class TreeNode {
         this.right = right;
     }
 
+    /**
+     *           1
+     *          / \
+     *         2   0
+     *       /  \   \
+     *      4   5    6
+     *         /
+     *        7
+     * @return
+     */
     public static TreeNode initTree() {
         TreeNode node1 = new TreeNode(1);
         TreeNode node2 = new TreeNode(2);
