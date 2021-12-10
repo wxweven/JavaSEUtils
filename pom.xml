@@ -14,7 +14,7 @@
         <disruptor.version>3.3.2</disruptor.version>
 
         <junit.version>4.13.1</junit.version>
-        <log4j.version>2.13.3</log4j.version>
+        <log4j.version>2.15.0</log4j.version>
         <slf4j.version>1.7.13</slf4j.version>
         <mysql.version>8.0.16</mysql.version>
         <spring.version>4.3.18.RELEASE</spring.version>
