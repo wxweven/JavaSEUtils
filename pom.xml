@@ -17,7 +17,7 @@
         <log4j.version>2.13.3</log4j.version>
         <slf4j.version>1.7.13</slf4j.version>
         <mysql.version>8.0.16</mysql.version>
-        <spring.version>4.3.18.RELEASE</spring.version>
+        <spring.version>5.2.20.RELEASE</spring.version>
         <poi.version>3.13</poi.version>
         <poi.version>3.13</poi.version>
         <httpclient.version>4.5.3</httpclient.version>
